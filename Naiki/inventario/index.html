@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingresar</title>
+    <link rel="icon" href="../img/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Mitr&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="main/style.css">
+
+</head>
+<body id="body_login">
+
+    <a class="contenido_1" href="../index.php">
+        <img src="../img/logo.png">
+    </a>
+
+    <div class="contenido_2">
+        <h1>Ingresar</h1>
+        <form action="iniciarSesion.php" method="POST">
+            <label for="username">Usuario: </label>
+            <br>
+            <input type="text" name="username" placeholder="Ingresa tu usuario :" required>
+            <br>
+            <label for="pass">Contraseña: </label>
+            <br>
+            <input type="password" name="password" placeholder="Ingresa tu contraseña :" required>
+            <br>
+            <input type="submit" value="Ingresar">
+        </form>
+        <a href="main/registro.html" class="regis">Registro</a>
+    </div>
+
+</body>
+</html>
