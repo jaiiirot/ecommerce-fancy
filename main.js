@@ -96,5 +96,5 @@ do {
     // SI SON MAS DE 4 NO SE MUESTRA EN EL ALERT
     console.log(mostrar)
     confirmar = confirm("¿Deseas Continuar agregando productos?")
-    alert("¡¡¡ FUERON "+((productos.length))+" PRODUCTOS AGREGADOS CORRECTAMENTE !!!\nFELICIDADES JHON")
+    alert("¡¡¡ FUERON "+((productos.length))+" PRODUCTOS AGREGADOS CORRECTAMENTE !!!\nFELICIDADES "+nombreUsuario+"")
 } while (confirmar);
