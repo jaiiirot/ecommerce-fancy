@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Roboto+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +10,7 @@ body {
   background: var(--color-gris); }
 
 :root {
+  --color-violet: #21123B;
   --color-negro1: #000;
   --color-negro: #1F1518;
   --color-bordo:#8B2C26;
@@ -18,68 +20,56 @@ body {
   --color-deg: linear-gradient(90deg,  #1F1518, #8B2C26);
   --family-titulo: 'Dancing Script'; }
 
-/* =======================================================
-                        MENU 
-==========================================================*/
-.cuerpo_menu {
-  width: 20%;
-  height: 100vh;
+/* =========================== MENU ==========================================*/
+.header {
+  width: 100%;
+  height: 8vh;
   position: sticky;
   top: 0;
-  background: #21123B;
-  border-radius: 0% 20% 20% 0%; }
-
-.logo {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  height: 15vh; }
-
-.logo .logo_imagen {
-  height: 80px;
-  width: 80px; }
-
-.logo .logo_texto {
-  /* font-family: var(--family-titulo); */
-  text-shadow: #ffffff 0px 0px 2px;
-  font-weight: 400;
-  font-size: 2rem;
-  /* transform: rotate(-10deg); */
-  color: #FFFFFF; }
-
-nav {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  flex-direction: column; }
-
-nav ul {
-  margin: 20vh auto;
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 50px; }
-
-nav ul li a {
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-decoration: none;
-  color: #ffffff;
-  font-weight: 500; }
-
-nav ul li hr {
-  width: 50%;
-  text-align: center;
-  height: 5px;
-  border: #21123B;
-  transition: 500ms all ease-in; }
-
-nav ul li a:hover + hr {
-  width: 100%;
-  background: #ffffff;
-  /* box-shadow: 0px 5px var(--color-bordo); */ }
+  background: #fff;
+  box-shadow: 0px 2px #000;
+  z-index: 10; }
+  .header * {
+    color: #000; }
+  .header__ctn {
+    height: inherit;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+    .header__ctnLogo {
+      text-decoration: none;
+      font-family: 'Rock Salt', cursive;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      height: inherit; }
+      .header__ctnLogo:hover > img {
+        transform: rotate(360deg); }
+      .header__ctnLogo img {
+        transition: all 1s;
+        height: 60%; }
+    .header__ctnList {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      gap: 30px; }
+      .header__ctnList li a {
+        font-size: 1.3rem;
+        text-decoration: none; }
+      .header__ctnList li hr {
+        width: 50%;
+        text-align: center;
+        height: 4px;
+        border: #000;
+        transition: 500ms all ease-in; }
+      .header__ctnList li a:hover + hr {
+        width: 100%;
+        background: #000; }
+      .header__ctnList li .light {
+        font-size: 2.5rem; }
 
 /* =======================================================
                         PIE DE PAGINA
@@ -98,82 +88,86 @@ nav ul li a:hover + hr {
   color: #ffffff;
   text-decoration: none; }
 
-/* =======================================================
-                        MENU 
-==========================================================*/
-.cuerpo_menu {
-  width: 20%;
-  height: 100vh;
-  position: sticky;
-  top: 0;
-  background: #21123B;
-  border-radius: 0% 20% 20% 0%; }
+/* ================================== CUERPO ===========================================*/
+.sec1Ix__prent {
+  width: 100%;
+  height: min-content;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "img1 img2" "img1 img3"; }
+  .sec1Ix__prent img {
+    width: 100%;
+    filter: grayscale(1); }
+    .sec1Ix__prent img:hover {
+      filter: grayscale(0.2); }
+  .sec1Ix__prent .i1 {
+    grid-area: img1; }
+  .sec1Ix__prent .i2 {
+    grid-area: img3; }
+  .sec1Ix__prent .i3 {
+    grid-area: img2; }
 
-.logo {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  height: 15vh; }
-
-.logo .logo_imagen {
-  height: 80px;
-  width: 80px; }
-
-.logo .logo_texto {
-  /* font-family: var(--family-titulo); */
-  text-shadow: #ffffff 0px 0px 2px;
-  font-weight: 400;
-  font-size: 2rem;
-  /* transform: rotate(-10deg); */
-  color: #FFFFFF; }
-
-nav {
+/* =========================================================
+============================================================
+                    MENU PRODUCTOS 
+============================================================
+============================================================*/
+.cards {
   width: 100%;
   display: flex;
-  align-items: center;
-  flex-direction: column; }
+  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px; }
 
-nav ul {
-  margin: 20vh auto;
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 50px; }
+.cards .card {
+  padding: 10px 5px;
+  border-radius: 50px;
+  height: 400px;
+  background: var(--color-blanco); }
 
-nav ul li a {
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-decoration: none;
-  color: #ffffff;
-  font-weight: 500; }
-
-nav ul li hr {
-  width: 50%;
-  text-align: center;
-  height: 5px;
-  border: #21123B;
-  transition: 500ms all ease-in; }
-
-nav ul li a:hover + hr {
+.card .imagenes {
   width: 100%;
-  background: #ffffff;
-  /* box-shadow: 0px 5px var(--color-bordo); */ }
+  height: 290px;
+  overflow: hidden; }
 
-#cuerpo-home {
-  display: flex;
-  background: #c3c3c3; }
+.imagenes img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50px 50px 0px 0px; }
 
-/* =======================================================
-                    REPETIDAS 
-==========================================================*/
-* .btns_principal {
-  color: var(--color-blanco);
-  background: linear-gradient(90deg, #1F1518, #8B2C26);
-  border-radius: 25px;
-  padding: 5px 10px; }
+.card .datos {
+  padding: 0 10px;
+  width: 100%;
+  height: 100px; }
 
-.separacion-del-menu {
-  width: 80%;
-  padding: 30px 60px; }
+.card h2 {
+  font-size: 1rem; }
+
+.card h3 {
+  font-size: 1.5rem; }
+
+/* 
+.card .acciones{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.card .acciones button{
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    color: var(--color-blanco);
+    font-size: 1rem;
+    border-radius: 15px;
+    padding: 6px 5px;
+    background: var(--color-negro1);
+}
+
+.acciones button:hover{
+    background: var(--color-bordo);
+} */
+/* =========== CONTACTO =========== */
