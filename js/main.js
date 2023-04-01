@@ -1,4 +1,4 @@
-const AgregarProducto = (opcion) => {
+/* const AgregarProducto = (opcion) => {
     let condition = true
     let cantidadProductos = 0
     let producto = []
@@ -98,3 +98,4 @@ do {
     confirmar = confirm("¿Deseas Continuar agregando productos?")
     alert("¡¡¡ FUERON "+((productos.length))+" PRODUCTOS AGREGADOS CORRECTAMENTE !!!\nFELICIDADES "+nombreUsuario+"")
 } while (confirmar);
+ */
