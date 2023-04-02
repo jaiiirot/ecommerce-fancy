@@ -1,0 +1,26 @@
+/* ============================ PIE DE PAGINA ==================*/
+
+.footer{
+    width: 100%;
+    background: #000;
+    justify-content: space-between;
+    padding: 40px 20px;
+
+    & *{
+        color: #fff;
+        list-style-type: none;
+        text-decoration: none;
+    }
+    &__redes{
+        ul{
+            gap: 20px;
+        }
+    }
+    &__info{
+        ul{
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+    }
+    // &copy{}
+}

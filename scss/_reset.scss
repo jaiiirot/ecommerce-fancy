@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
+}
+
+body {
+    background: var(--color-gris);
+}
+
+/* ========== REPETICIONES ============ */
+
+
+// * .btns_principal{
+//     color: var(--color-blanco);
+//     background: linear-gradient(90deg,  #1F1518, #8B2C26);
+//     border-radius: 25px;
+//     padding: 5px 10px;
+// }
+
+// .separacion-del-menu{
+//     width: 80%;
+//     padding: 30px 60px;
+// }
+
+.ff-rocksalt {
+    font-family: 'Rock Salt', cursive;
+}
+
+.d-f-cc{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ========= COLORES ========== */
+
+:root{
+    --color-violet: #21123B;
+    --color-negro1: #000;
+    --color-negro: #1F1518;
+    --color-bordo:#8B2C26;
+    --color-rojo-claro: #dc0f00;
+    --color-gris:#c3c3c3;
+    --color-blanco:#FFFFFF;
+    --color-deg: linear-gradient(90deg,  #1F1518, #8B2C26);
+    --family-titulo: 'Dancing Script';
+}

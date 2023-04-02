@@ -1,0 +1,74 @@
+/* =========================== MENU ==========================================*/
+
+.header {
+    width: 100%;
+    height: 8vh;
+    position: fixed;
+    top: 0;
+    background: #ffffff;
+    box-shadow: 0px 2px #000;
+    z-index: 10;
+
+    & *{
+        color: #000;
+    }
+
+    &__ctn {
+        height: inherit;
+        width: 80%;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &Logo {
+            text-decoration: none;
+            font-family: 'Rock Salt', cursive;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            height: inherit;
+            &:hover > img{
+                transform: rotate(360deg);
+            }
+            img {
+                transition: all 1s;
+                height: 60%;
+            }
+        }
+
+        &List {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            li {
+
+                a {
+                    font-size: 1.3rem;
+                    text-decoration: none;
+                }
+
+                hr {
+                    width: 50%;
+                    text-align: center;
+                    height: 4px;
+                    border: #000;
+                    transition: 500ms all ease-in;
+                }
+
+                a:hover+hr {
+                    width: 100%;
+                    background: #000;
+                }
+
+                .light{
+                    font-size: 2.5rem;
+                }
+            }
+        }
+    }
+
+
+}
