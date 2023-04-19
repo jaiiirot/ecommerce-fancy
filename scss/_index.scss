@@ -1,71 +1,8 @@
 /* ================================== CUERPO ===========================================*/
 
 .sec1Ix {
-    position: relative;
-    height: 60vh;
-    cursor: pointer;
-
-    // &__prent {
-    //     height: inherit;
-    //     width: 100%;
-    //     display: grid;
-    //     grid-template-columns: repeat(2, 1fr);
-    //     grid-template-rows: auto auto;
-    //     grid-template-areas:
-    //         "img1 img2"
-    //         "img1 img4";
-
-    //     .i1 {
-    //         grid-area: img1;
-    //     }
-
-    //     .i2 {
-    //         grid-area: img2;
-    //     }
-
-    //     .i3 {
-    //         grid-area: img4;
-    //     }
-
-    //     .i4 {
-    //         grid-area: img3;
-    //     }
-
-    //     div {
-    //         overflow: hidden;
-
-    //         img {
-    //             object-fit: cover;
-    //             height: 100%;
-    //             width: 100%;
-    //             filter: grayscale(1);
-
-    //             &:hover {
-    //                 filter: grayscale(0.2);
-    //             }
-    //         }
-    //     }
-    // }
 
     &__title {
         height: 100%;
-        // background: url(../../img/modelos/aesthetic\(1\).jpg);
-        // position: absolute;
-        // top: 50%;
-        // left: 50%;
-        // transform: translate(-50%, -75%);
-        // background: #00000090;
-        // padding: 10px;
-        // h1 {
-        //     padding: 10px;
-        //     // color: rgb(234, 216, 195);
-        //     background: linear-gradient(90deg, #00d6d6, rgb(255, 0, 238));
-        //     background-clip: text;
-        //     -webkit-background-clip: text;
-        //     -webkit-text-fill-color: transparent;
-        //     -webkit-text-stroke: 2px black;
-        //     font-size: 7rem;
-        //     // text-shadow: 6px 3px #030303;
-        // }
     }
 }

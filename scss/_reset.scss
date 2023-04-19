@@ -9,23 +9,24 @@
 }
 
 body {
-    background: var(--color-gris);
+    background: #000;
+}
+
+main{
+    background: #f0eaea;
+    border-radius: 30px;
+    padding: 20px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 80%;
+    height: 80vh;
+    overflow-y: scroll;
 }
 
 /* ========== REPETICIONES ============ */
-
-
-// * .btns_principal{
-//     color: var(--color-blanco);
-//     background: linear-gradient(90deg,  #1F1518, #8B2C26);
-//     border-radius: 25px;
-//     padding: 5px 10px;
-// }
-
-// .separacion-del-menu{
-//     width: 80%;
-//     padding: 30px 60px;
-// }
 
 .ff-rocksalt {
     font-family: 'Rock Salt', cursive;

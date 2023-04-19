@@ -1,10 +1,12 @@
 /* ============================ PIE DE PAGINA ==================*/
 
 .footer{
+    position:fixed;
+    height: 10vh;
+    bottom: 0;
     width: 100%;
     background: #000;
-    justify-content: space-between;
-    padding: 40px 20px;
+    justify-content: space-evenly;
 
     & *{
         color: #fff;
@@ -16,11 +18,4 @@
             gap: 20px;
         }
     }
-    &__info{
-        ul{
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-    }
-    // &copy{}
 }

@@ -1,101 +1,115 @@
-/* const AgregarProducto = (opcion) => {
-    let condition = true
-    let cantidadProductos = 0
-    let producto = []
+const Agregar = () => {
+    alert("A continuacion agregar los productos")
+    let productos = []
     do {
-        let nombre, talle, realizado, modelo, precio
-
-        nombre = prompt("ingresar nombre de " + opcion)
-        talle = prompt("ingresar talles disponibles (separdos por coma) de " + opcion)
-        realizado = prompt("ingresar donde fue creado")
-        modelo = prompt("ingresar modelo de " + opcion)
-        precio = prompt("ingresar precio de " + opcion + " " + nombre)
-
-        condition = confirm("Usted ingreso en " + opcion + ":\n nombre: " + nombre + "\n talles: " + talle + "\n relizado en: " + realizado + "\n modelo: " + modelo + "\n precio: $" + precio + "\n\n¿ES CORRECTO?")
-
-        if (condition === true) {
-            producto[cantidadProductos] = { nombre: nombre, talle: talle, realizado: realizado, modelo: modelo, precio: precio }
-            cantidadProductos++
-        }
-        condition = confirm("¿DESEAS SEGUIR AGREGANDO EN "+opcion+"?")
-    } while (condition);
-
-    console.log(producto)
-    return producto
-}
-
-const MostrarTodosLosProductos = (valor,producto = "") => {
-    let b = producto
-    for (let i = 0; i < valor.length; i++) {
-        b += "(" + (i + 1) + ")" + "\n";
-        for (let j = 0; j < 5; j++) {
-            switch (j) {
-                case 0:
-                    b += "nombre: " + valor[i].nombre
-                    break
-                case 1:
-                    b += "talle: " + valor[i].talle
-                    break;
-                case 2:
-                    b += "realizado: " + valor[i].realizado
-                    break
-                case 3:
-                    b += "modelo: " + valor[i].modelo
-                    break;
-                case 4:
-                    b += "precio: " + valor[i].precio
-                    break;
-                default:
-                    break;
+        tProd = prompt("agregar tipo producto \n\n ( r ) = remera \n ( p ) = pantalon \n ( z ) = zapatilla").toLocaleLowerCase()
+        nProd = prompt("agregar nombre producto")
+        taProd = prompt("agregar talle producto")
+        pProd = prompt("agregar precio producto")
+        sProd = prompt("agregar stock producto")
+        productos.push(
+            {
+                id: (Math.trunc(Math.random() * 150)),
+                tipo: tProd,
+                nombre: nProd,
+                tamaño: taProd,
+                precio: pProd,
+                stock: sProd,
             }
-            b += "\n"
-        };
-        b += "=====================\n"
-    }
-    return b
+        )
+        condition = confirm("Deseas Agregar mas productos")
+    } while (condition);
+    return productos
 }
 
-const verificacionOpcion = (valor) => {
-    switch (valor) {
-        case "1":
-            return "remera"
-        case "2":
-            return "zapatilla"
-        default:
-            return alert("Esta Opcion no existe")
-    }
-}
-const MostrarOpciones = () => {
-    let opcion, condition = true;
-    do {
-        opcion = prompt("Por favor seleccione una opcion ecribiendo en texto o el numero a la izquierda\n\n=========== AGREGAR PRODUCTOS ========\n(1) Remeras \n(2) Zapatillas")
-        opcion = verificacionOpcion(opcion)
-        if (opcion !== undefined) {
-            condition = confirm("Usted eligio la opcion:  (" + opcion + ")  ¿Es correcto?\n(1)Remeras\n(2)Zapatillas \nAceptar = si y cancelar = no")
-        } else {
-            condition = false
+const buscar = (productos) => {
+    let option = prompt("buscar por tipo producto \n\n ( r ) = remera \n ( p ) = pantalon \n ( z ) = zapatilla").toLocaleLowerCase()
+
+    productos.forEach((e, i) => {
+        if (e.tipo == option) {
+            const tipos = { r: "remera", p: "pantalone", z: "zapatilla" }
+            alert(`
+========== ${e.tipos} ===========
+id: ${e.id}
+tipo: ${tipos[e.tipo]}
+nombre: ${e.nombre}
+tamaño: ${(e.tamaño).split(",").join("-")}
+precio: $${e.precio}
+stock: ${e.stock} unidades`)
         }
-    } while (!condition);
-    return opcion
+    })
 }
 
+const eliminar = (productos) =>{
+    let option = parseInt(prompt("eliminar por id producto"))
+    
+    let nuevoProducto = productos.filter(e => e.id !== option);
 
+    return nuevoProducto
+}
 
 const nombreUsuario = prompt("Por favor ingresar el  nombre de usuario")
 let confirmar = true
-let productos = []
-let mostrar = "";
+let productos = [
+    {
+        id: 12,
+        tipo: "r",
+        nombre: "Remera Monster Octopus Nu Goth Aesthetic Oversized Adulto",
+        tamaño: "6,4,2",
+        precio: "4500",
+        stock: "25",
+    },
+    {
+        id: 14,
+        tipo: "r",
+        nombre: "Remera Fases Luna Moon Phase Japan Oversized Nu Goth",
+        tamaño: "3,6,3",
+        precio: 5000,
+        stock: 50,
+    },
+    {
+        id: 24,
+        tipo: "p",
+        nombre: "Pantalón Pampero Cargo De Trabajo",
+        tamaño: "1,2,3",
+        precio: 2500,
+        stock: 53,
+    },
+    {
+        id: 30,
+        tipo: "z",
+        nombre: "Zapatillas Ozono Skate",
+        tamaño: "40,42,39",
+        precio: 20000,
+        stock: 12,
+    }
+]
 do {
-    alert("Bienvenido " + nombreUsuario + " a Mystic")
-    let opcion = MostrarOpciones()
 
-    productos = AgregarProducto(opcion)
+    alert(`BIENVENIDO ${nombreUsuario.toLocaleUpperCase()} A AESTHETIC`)
 
-    mostrar = MostrarTodosLosProductos(productos,"")
-    alert(mostrar)
-    // SI SON MAS DE 4 NO SE MUESTRA EN EL ALERT
-    console.log(mostrar)
-    confirmar = confirm("¿Deseas Continuar agregando productos?")
-    alert("¡¡¡ FUERON "+((productos.length))+" PRODUCTOS AGREGADOS CORRECTAMENTE !!!\nFELICIDADES "+nombreUsuario+"")
+    let valor = prompt("DESEAS BUSCAR UN PRODUCTO O AGREGAR UN PRODUCTO \n (1)Agregar \n\n (2)Buscar \n\n (3)Eliminar \n\n (4)Salir")
+
+    switch (valor) {
+        case "1":
+            let nuevosProductos = Agregar()
+            productos = productos.concat(nuevosProductos)
+            alert(`SE AGREGO ${nuevosProductos.length} PRODUCTOS A LA BASE DE DATOS`)
+            break;
+        case "2":
+            buscar(productos)
+            break;
+        case "3":
+            productos = eliminar(productos)
+            break;
+        default:
+            break;
+    }
+    confirmar = !(confirm("SEGURO QUE DESEAS SALIR?"))
+    console.log("=========")
+    console.log(productos)
 } while (confirmar);
- */
+
+
+
+
