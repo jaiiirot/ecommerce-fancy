@@ -1,7 +1,8 @@
 console.clear()
 import { PRODUCTOS } from './productos.js';
 
-const $cards = document.getElementById('CARDS')
+const $CARDS = document.getElementById('CARDS')
+
 
 
 // const Agregar = () => {
@@ -68,11 +69,12 @@ const MOSTRARPRODUCTOS = (e)=>{
 </div>
 <div class="ctnCard__btns">
 <h4>$ ${e.precio}</h4>
+<button class="btn" type="submit"><i class="fa-solid fa-heart" style="color: #eb0000;"></i></button>
 <button class="btn" type="submit"><img src="https://img.icons8.com/color/24/null/add-shopping-cart--v1.png"/></button>
 </div>
 </div>
 `
-        $cards.append($prod)
+        $CARDS.append($prod)
 }
 
 
@@ -110,7 +112,7 @@ let productos = PRODUCTOS
 
 
 
-if($cards.innerText === "" || nombreUsuario === ""){
+if($CARDS.innerText === "" || nombreUsuario === ""){
 
     productos.forEach((e) => {
         MOSTRARPRODUCTOS(e)
@@ -130,13 +132,5 @@ if($cards.innerText === "" || nombreUsuario === ""){
 
 
 
-
-
-
-
-
-
-const $LOGREG = document.querySelector('.logReg')
-$LOGREG.classList.add("accionCerrar")
 
 
