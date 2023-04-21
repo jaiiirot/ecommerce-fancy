@@ -8,6 +8,11 @@
     font-family: 'Roboto Mono', monospace;
 }
 
+html{
+    position: relative;
+    top: 0;
+}
+
 body {
     background: #000;
 }
@@ -26,6 +31,12 @@ main{
     overflow-y: scroll;
 }
 
+* input{
+    outline: none;
+    border-radius: 30px;
+    border: none;
+}
+
 /* ========== REPETICIONES ============ */
 
 .ff-rocksalt {
@@ -38,6 +49,22 @@ main{
     justify-content: center;
 }
 
+
+* .btn{
+    cursor: pointer;
+    padding: 8px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    background: none;
+    color: #ffffff;
+    outline: 1px solid #fff;
+    &:hover{
+        background: #fff;
+        outline: 2px solid #ffffff;
+        color: #000000;
+    }
+}
 /* ========= COLORES ========== */
 
 :root{
@@ -48,6 +75,6 @@ main{
     --color-rojo-claro: #dc0f00;
     --color-gris:#c3c3c3;
     --color-blanco:#FFFFFF;
-    --color-deg: linear-gradient(90deg,  #1F1518, #8B2C26);
+    --color-deg: linear-gradient(45deg,  #af0035, #006d88);
     --family-titulo: 'Dancing Script';
 }

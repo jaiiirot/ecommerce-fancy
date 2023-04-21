@@ -1,18 +1,30 @@
+console.clear()
+import { PRODUCTOS } from './productos.js';
+
+const $cards = document.getElementById('CARDS')
+
+
 const Agregar = () => {
     alert("A continuacion agregar los productos")
     let productos = []
+    let condition = false
     do {
-        tProd = prompt("agregar tipo producto \n\n ( r ) = remera \n ( p ) = pantalon \n ( z ) = zapatilla").toLocaleLowerCase()
-        nProd = prompt("agregar nombre producto")
-        taProd = prompt("agregar talle producto")
-        pProd = prompt("agregar precio producto")
-        sProd = prompt("agregar stock producto")
+        let tProd = prompt("agregar tipo producto \n\n ( r ) = remera \n ( p ) = pantalon \n ( z ) = zapatilla").toLocaleLowerCase()
+        let iProd = prompt("agregar imagen de internet producto")
+        let tiProd = prompt("agregar titulo producto")
+        let inProd = prompt("agregar informacion producto")
+        let taProd = prompt("agregar talle producto")
+        let pProd = prompt("agregar precio producto")
+        let sProd = prompt("agregar stock producto")
+
         productos.push(
             {
-                id: (Math.trunc(Math.random() * 150)),
                 tipo: tProd,
-                nombre: nProd,
-                tamaño: taProd,
+                id: (Math.trunc(Math.random() * 150)),
+                img: iProd,
+                title: tiProd,
+                info: inProd,
+                talles: taProd,
                 precio: pProd,
                 stock: sProd,
             }
@@ -25,91 +37,111 @@ const Agregar = () => {
 const buscar = (productos) => {
     let option = prompt("buscar por tipo producto \n\n ( r ) = remera \n ( p ) = pantalon \n ( z ) = zapatilla").toLocaleLowerCase()
 
-    productos.forEach((e, i) => {
+    productos.forEach((e) => {
         if (e.tipo == option) {
-            const tipos = { r: "remera", p: "pantalone", z: "zapatilla" }
-            alert(`
-========== ${e.tipos} ===========
-id: ${e.id}
-tipo: ${tipos[e.tipo]}
-nombre: ${e.nombre}
-tamaño: ${(e.tamaño).split(",").join("-")}
-precio: $${e.precio}
-stock: ${e.stock} unidades`)
+            MOSTRARPRODUCTOS(e)
         }
     })
 }
 
-const eliminar = (productos) =>{
+const eliminar = (productos) => {
     let option = parseInt(prompt("eliminar por id producto"))
-    
+
     let nuevoProducto = productos.filter(e => e.id !== option);
 
     return nuevoProducto
 }
 
+
+const MOSTRARPRODUCTOS = (e)=>{
+        let $prod = document.createElement(`div`)
+        $prod.innerHTML =
+                `
+<div class="ctnCard">
+<div class="ctnCard__tipo"><img src="https://img.icons8.com/ios-filled/20/null/polo-shirt.png"/></div>
+<div class="ctnCard__img">
+<img src="${e.img}" alt="">
+</div>
+<div class="ctnCard__info">
+<h4>${e.title}</h4>
+<p>${e.info}</p>
+</div>
+<div class="ctnCard__btns">
+<h4>$ ${e.precio}</h4>
+<button class="btn" type="submit"><img src="https://img.icons8.com/color/24/null/add-shopping-cart--v1.png"/></button>
+</div>
+</div>
+`
+        $cards.append($prod)
+}
+
+
 const nombreUsuario = prompt("Por favor ingresar el  nombre de usuario")
 let confirmar = true
-let productos = [
-    {
-        id: 12,
-        tipo: "r",
-        nombre: "Remera Monster Octopus Nu Goth Aesthetic Oversized Adulto",
-        tamaño: "6,4,2",
-        precio: "4500",
-        stock: "25",
-    },
-    {
-        id: 14,
-        tipo: "r",
-        nombre: "Remera Fases Luna Moon Phase Japan Oversized Nu Goth",
-        tamaño: "3,6,3",
-        precio: 5000,
-        stock: 50,
-    },
-    {
-        id: 24,
-        tipo: "p",
-        nombre: "Pantalón Pampero Cargo De Trabajo",
-        tamaño: "1,2,3",
-        precio: 2500,
-        stock: 53,
-    },
-    {
-        id: 30,
-        tipo: "z",
-        nombre: "Zapatillas Ozono Skate",
-        tamaño: "40,42,39",
-        precio: 20000,
-        stock: 12,
-    }
-]
-do {
+let productos = PRODUCTOS
 
-    alert(`BIENVENIDO ${nombreUsuario.toLocaleUpperCase()} A AESTHETIC`)
+if (nombreUsuario !== null) {
+    do {
+        alert(`BIENVENIDO ${nombreUsuario.toLocaleUpperCase()} A AESTHETIC`)
 
-    let valor = prompt("DESEAS BUSCAR UN PRODUCTO O AGREGAR UN PRODUCTO \n (1)Agregar \n\n (2)Buscar \n\n (3)Eliminar \n\n (4)Salir")
+        let valor = prompt("DESEAS BUSCAR UN PRODUCTO O AGREGAR UN PRODUCTO \n (1)Agregar \n\n (2)Buscar \n\n (3)Eliminar \n\n (4)Salir")
 
-    switch (valor) {
-        case "1":
-            let nuevosProductos = Agregar()
-            productos = productos.concat(nuevosProductos)
-            alert(`SE AGREGO ${nuevosProductos.length} PRODUCTOS A LA BASE DE DATOS`)
-            break;
-        case "2":
-            buscar(productos)
-            break;
-        case "3":
-            productos = eliminar(productos)
-            break;
-        default:
-            break;
-    }
-    confirmar = !(confirm("SEGURO QUE DESEAS SALIR?"))
-    console.log("=========")
+        switch (valor) {
+            case "1":
+                let nuevosProductos = Agregar()
+                productos = productos.concat(nuevosProductos)
+                alert(`SE AGREGO ${nuevosProductos.length} PRODUCTOS A LA BASE DE DATOS`)
+                break;
+            case "2":
+                buscar(productos)
+                break;
+            case "3":
+                productos = eliminar(productos)
+                break;
+            default:
+                break;
+        }
+        
+        confirmar = !(confirm("SEGURO QUE DESEAS SALIR?"))
+
+    } while (confirmar);
+}
+
+
+
+
+if($cards.innerText === "" || nombreUsuario === ""){
+
+    productos.forEach((e) => {
+        MOSTRARPRODUCTOS(e)
+    })
+
     console.log(productos)
-} while (confirmar);
+}
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const $cards = document.getElementById('CARDS')
+
+// const $LOGREG = document.querySelector('.logReg')
+// $LOGREG.classList.add("accionCerrar")
 
 
