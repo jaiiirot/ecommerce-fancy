@@ -122,15 +122,3 @@ if($CARDS.innerText === "" || nombreUsuario === ""){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
