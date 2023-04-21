@@ -4,53 +4,53 @@ import { PRODUCTOS } from './productos.js';
 const $cards = document.getElementById('CARDS')
 
 
-const Agregar = () => {
-    alert("A continuacion agregar los productos")
-    let productos = []
-    let condition = false
-    do {
-        let tProd = prompt("agregar tipo producto \n\n ( r ) = remera \n ( p ) = pantalon \n ( z ) = zapatilla").toLocaleLowerCase()
-        let iProd = prompt("agregar imagen de internet producto")
-        let tiProd = prompt("agregar titulo producto")
-        let inProd = prompt("agregar informacion producto")
-        let taProd = prompt("agregar talle producto")
-        let pProd = prompt("agregar precio producto")
-        let sProd = prompt("agregar stock producto")
+// const Agregar = () => {
+//     alert("A continuacion agregar los productos")
+//     let productos = []
+//     let condition = false
+//     do {
+//         let tProd = prompt("agregar tipo producto \n\n ( r ) = remera \n ( p ) = pantalon \n ( z ) = zapatilla").toLocaleLowerCase()
+//         let iProd = prompt("agregar imagen de internet producto")
+//         let tiProd = prompt("agregar titulo producto")
+//         let inProd = prompt("agregar informacion producto")
+//         let taProd = prompt("agregar talle producto")
+//         let pProd = prompt("agregar precio producto")
+//         let sProd = prompt("agregar stock producto")
 
-        productos.push(
-            {
-                tipo: tProd,
-                id: (Math.trunc(Math.random() * 150)),
-                img: iProd,
-                title: tiProd,
-                info: inProd,
-                talles: taProd,
-                precio: pProd,
-                stock: sProd,
-            }
-        )
-        condition = confirm("Deseas Agregar mas productos")
-    } while (condition);
-    return productos
-}
+//         productos.push(
+//             {
+//                 tipo: tProd,
+//                 id: (Math.trunc(Math.random() * 150)),
+//                 img: iProd,
+//                 title: tiProd,
+//                 info: inProd,
+//                 talles: taProd,
+//                 precio: pProd,
+//                 stock: sProd,
+//             }
+//         )
+//         condition = confirm("Deseas Agregar mas productos")
+//     } while (condition);
+//     return productos
+// }
 
-const buscar = (productos) => {
-    let option = prompt("buscar por tipo producto \n\n ( r ) = remera \n ( p ) = pantalon \n ( z ) = zapatilla").toLocaleLowerCase()
+// const buscar = (productos) => {
+//     let option = prompt("buscar por tipo producto \n\n ( r ) = remera \n ( p ) = pantalon \n ( z ) = zapatilla").toLocaleLowerCase()
 
-    productos.forEach((e) => {
-        if (e.tipo == option) {
-            MOSTRARPRODUCTOS(e)
-        }
-    })
-}
+//     productos.forEach((e) => {
+//         if (e.tipo == option) {
+//             MOSTRARPRODUCTOS(e)
+//         }
+//     })
+// }
 
-const eliminar = (productos) => {
-    let option = parseInt(prompt("eliminar por id producto"))
+// const eliminar = (productos) => {
+//     let option = parseInt(prompt("eliminar por id producto"))
 
-    let nuevoProducto = productos.filter(e => e.id !== option);
+//     let nuevoProducto = productos.filter(e => e.id !== option);
 
-    return nuevoProducto
-}
+//     return nuevoProducto
+// }
 
 
 const MOSTRARPRODUCTOS = (e)=>{
@@ -76,36 +76,36 @@ const MOSTRARPRODUCTOS = (e)=>{
 }
 
 
-const nombreUsuario = prompt("Por favor ingresar el  nombre de usuario")
-let confirmar = true
+// const nombreUsuario = prompt("Por favor ingresar el  nombre de usuario")
+// let confirmar = true
 let productos = PRODUCTOS
 
-if (nombreUsuario !== null) {
-    do {
-        alert(`BIENVENIDO ${nombreUsuario.toLocaleUpperCase()} A AESTHETIC`)
+// if (nombreUsuario !== null) {
+//     do {
+//         alert(`BIENVENIDO ${nombreUsuario.toLocaleUpperCase()} A AESTHETIC`)
 
-        let valor = prompt("DESEAS BUSCAR UN PRODUCTO O AGREGAR UN PRODUCTO \n (1)Agregar \n\n (2)Buscar \n\n (3)Eliminar \n\n (4)Salir")
+//         let valor = prompt("DESEAS BUSCAR UN PRODUCTO O AGREGAR UN PRODUCTO \n (1)Agregar \n\n (2)Buscar \n\n (3)Eliminar \n\n (4)Salir")
 
-        switch (valor) {
-            case "1":
-                let nuevosProductos = Agregar()
-                productos = productos.concat(nuevosProductos)
-                alert(`SE AGREGO ${nuevosProductos.length} PRODUCTOS A LA BASE DE DATOS`)
-                break;
-            case "2":
-                buscar(productos)
-                break;
-            case "3":
-                productos = eliminar(productos)
-                break;
-            default:
-                break;
-        }
+//         switch (valor) {
+//             case "1":
+//                 let nuevosProductos = Agregar()
+//                 productos = productos.concat(nuevosProductos)
+//                 alert(`SE AGREGO ${nuevosProductos.length} PRODUCTOS A LA BASE DE DATOS`)
+//                 break;
+//             case "2":
+//                 buscar(productos)
+//                 break;
+//             case "3":
+//                 productos = eliminar(productos)
+//                 break;
+//             default:
+//                 break;
+//         }
         
-        confirmar = !(confirm("SEGURO QUE DESEAS SALIR?"))
+//         confirmar = !(confirm("SEGURO QUE DESEAS SALIR?"))
 
-    } while (confirmar);
-}
+//     } while (confirmar);
+// }
 
 
 
@@ -136,12 +136,7 @@ if($cards.innerText === "" || nombreUsuario === ""){
 
 
 
-
-
-
-// const $cards = document.getElementById('CARDS')
-
-// const $LOGREG = document.querySelector('.logReg')
-// $LOGREG.classList.add("accionCerrar")
+const $LOGREG = document.querySelector('.logReg')
+$LOGREG.classList.add("accionCerrar")
 
 
