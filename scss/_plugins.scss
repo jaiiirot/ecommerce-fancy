@@ -1,12 +1,12 @@
 // Iniciar sesion y registrarse
-
 .logReg{
+    transition: 1s ease-in-out;
     position:absolute;
     width: 100%;
     height: 100vh;
     top: 0;
     z-index: 10;
-    background: rgba(0, 0, 0, 0.842);
+    background: #000000;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,15 +16,11 @@
         cursor: pointer;
         top: 1rem;
         right: 1rem;
-
-        &:hover + div{
-            background: #000000;
-        }
     }
 
 
     div{
-        background: var(--color-deg);
+        background: #000;
         width: 30%;
         height: min-content;
         border-radius: 30px;
@@ -46,11 +42,19 @@
 
 }
 
-// Cerrar 
+// RELOAD
 
-* .accionCerrar {
-    // Borrar con javaScript
-    display: none;
+.LOAD{
+    transition: 1s all ease-in-out;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 100;
+    background: #04090c;
+    img{
+        z-index: 100;
+    }
 }
 
 // ngt (navegation)
@@ -61,11 +65,31 @@
     top: 0;
     width: 100%;
     background: #000;
+    justify-content: center;
+
+    &__ctnLogo {
+        text-decoration: none;
+        font-family: 'Rock Salt', cursive;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        height: 100px;
+        color: #fff;
+        &:hover > img{
+            transform: rotate(360deg);
+        }
+        img {
+            transition: all 1s;
+            height: 40px;
+        }
+    }
+
     form{
         justify-content: space-evenly;
         width: 100%;
         ul{
             li{
+                height: 25px;
                 input{
                     width: 400px;
                     padding: 6px 15px;
@@ -74,7 +98,7 @@
         }
     }
     // .ngt__ctnBuscar{}
-    .ngt__ctnPerson{
+    &__ctnPerson{
         list-style-type: none;
         gap: 10px;
     }

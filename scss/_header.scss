@@ -1,7 +1,7 @@
 /* =========================== MENU ==========================================*/
 
 .header {
-    width: 20%;
+    width: 15%;
     height: 80vh;
     position: fixed;
     top: 0;
@@ -19,22 +19,6 @@
         align-items: center;
         justify-content: space-evenly;
         flex-direction: column;
-
-        &Logo {
-            text-decoration: none;
-            font-family: 'Rock Salt', cursive;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            height: 100px;
-            &:hover > img{
-                transform: rotate(360deg);
-            }
-            img {
-                transition: all 1s;
-                height: 60%;
-            }
-        }
         
         &List {
             width: 100%;
@@ -59,13 +43,13 @@
                 }
                 &:hover{
                     cursor: pointer;
-                    background: #ffffff;
-                    *{
-                        color: #000;
-                    }
+                    // background: #ffffff;
+                    // *{
+                    //     color: #000;
+                    // }
                     a+hr {
                         width: 100%;
-                        background: #000000;
+                        background: #ffffff;
                     }
                 }
             }
