@@ -1,6 +1,6 @@
 // Iniciar sesion y registrarse
-.logReg{
-    transition: 1s ease-in-out;
+#LOGREG{
+    transition: 500ms ease-in-out;
     position:absolute;
     width: 100%;
     height: 100vh;
@@ -18,13 +18,11 @@
         right: 1rem;
     }
 
-
-    div{
-        background: #000;
-        width: 30%;
-        height: min-content;
-        border-radius: 30px;
+    .logReg{
+        width: 25%;
         form{
+            width: 100%;
+            border-radius: 30px;
             color: #fff;
             display: flex;
             flex-direction: column;
@@ -45,7 +43,7 @@
 // RELOAD
 
 .LOAD{
-    transition: 1s all ease-in-out;
+    transition: 1s ease-in-out;
     position: fixed;
     top: 0;
     width: 100%;
