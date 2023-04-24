@@ -119,6 +119,12 @@ if($CARDS.innerText === "" || nombreUsuario === ""){
 
 
 
+// FORMULARIO
+
+
+
+
+
 // MEJORAR
 
 let $VIEW = document.querySelectorAll(".ctnCard")

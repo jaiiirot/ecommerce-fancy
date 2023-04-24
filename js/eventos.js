@@ -38,10 +38,10 @@ $formularios.classList.add("logReg")
 
 const $LOGIN = 
 `
-<form class="logReg__ctnLog" action="">
+<form id="FORM" class="logReg__ctnLog FORM" action="">
 <h2>Iniciar Sesion</h2>
-<input type="email" placeholder="E-mail, teléfono o usuario:">
-<input type="password" placeholder="Contraseña:">
+<input id="email" name="email" type="email" placeholder="E-mail, teléfono o usuario:">
+<input id="password" name="password" type="password" placeholder="Contraseña:">
 
 <input class="btn" type="submit" value="INICIAR SESION">
 <input class="btn btn-deleteLog" type="button" value="CREAR CUENTA">
@@ -49,14 +49,14 @@ const $LOGIN =
 `
 const $REGISTER = 
 `
-<form class="logReg__ctnReg" action="">
-<h2>Crear tu cuenta</h2>
-<input type="email" placeholder="E-mail">
-<input type="email" placeholder="Confirmar E-mail">
-<input type="password" placeholder="Contraseña">
-<input type="password" placeholder="Confirmar Contraseña">
+<form class="logReg__ctnReg FORM" action="">
+    <h2>Crear tu cuenta</h2>
+    <input name="email" type="email" placeholder="E-mail">
+    <input name="reemail" type="email" placeholder="Confirmar E-mail">
+    <input name="password" type="password" placeholder="Contraseña">
+    <input name="repassword" type="password" placeholder="Confirmar Contraseña">
 
-<input class="btn" type="submit" value="CREAR CUENTA">
+    <input class="btn" type="submit" value="CREAR CUENTA">
 </form>
 `
 $formularios.innerHTML += $LOGIN
