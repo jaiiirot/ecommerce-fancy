@@ -1,7 +1,54 @@
-console.clear()
+// console.clear()
 import { PRODUCTOS } from './productos.js';
 
-const $CARDS = document.getElementById('CARDS')
+
+// $listaHeader.addEventListener('click',(e) =>{
+//     console.log(e)
+// })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const $CARDS = document.getElementById('CARDS')
 
 // const Agregar = () => {
 //     alert("A continuacion agregar los productos")
@@ -52,35 +99,35 @@ const $CARDS = document.getElementById('CARDS')
 // }
 
 
-const MOSTRARPRODUCTOS = (e)=>{
-    const $productos =
-    `
-    <div class="ctnCard">
-        <div class="ctnCard__view" id="${e.id}"></div>
-        <div class="ctnCard__tipo">
-            <img src="https://img.icons8.com/ios-filled/20/null/polo-shirt.png"/>
-        </div>
-        <div class="ctnCard__img">
-            <img src="${e.img}" alt="">
-        </div>
-        <div class="ctnCard__info">
-            <h4>${e.title}</h4>
-            <p>${e.info}</p>
-        </div>
-        <div class="ctnCard__btns">
-            <h4>$ ${e.precio}</h4>
-            <button class="btn" type="submit"><i class="fa-solid fa-heart" style="color: #eb0000;"></i></button>
-            <button class="btn" type="submit"><img src="https://img.icons8.com/color/24/null/add-shopping-cart--v1.png"/></button>
-        </div>
-    </div>
-    `    
-    $CARDS.innerHTML += $productos    
-}
+// const MOSTRARPRODUCTOS = (e)=>{
+//     const $productos =
+//     `
+//     <div class="ctnCard">
+//         <div class="ctnCard__view" id="${e.id}"></div>
+//         <div class="ctnCard__tipo">
+//             <img src="https://img.icons8.com/ios-filled/20/null/polo-shirt.png"/>
+//         </div>
+//         <div class="ctnCard__img">
+//             <img src="${e.img}" alt="">
+//         </div>
+//         <div class="ctnCard__info">
+//             <h4>${e.title}</h4>
+//             <p>${e.info}</p>
+//         </div>
+//         <div class="ctnCard__btns">
+//             <h4>$ ${e.precio}</h4>
+//             <button class="btn" type="submit"><i class="fa-solid fa-heart" style="color: #eb0000;"></i></button>
+//             <button class="btn" type="submit"><img src="https://img.icons8.com/color/24/null/add-shopping-cart--v1.png"/></button>
+//         </div>
+//     </div>
+//     `    
+//     $CARDS.innerHTML += $productos    
+// }
 
 
 // const nombreUsuario = prompt("Por favor ingresar el  nombre de usuario")
 // let confirmar = true
-let productos = PRODUCTOS
+// let productos = PRODUCTOS
 
 // if (nombreUsuario !== null) {
 
@@ -110,52 +157,58 @@ let productos = PRODUCTOS
 //     } while (confirmar);
 // }
 
-if($CARDS.innerText === "" || nombreUsuario === ""){
-    productos.forEach((e) => {
-        MOSTRARPRODUCTOS(e)
-    })
-}
+// if($CARDS.innerText === "" || nombreUsuario === ""){
+//     productos.forEach((e) => {
+//         MOSTRARPRODUCTOS(e)
+//     })
+// }
 
 
 
 
-// FORMULARIO
+// // SELECCION DE PRODUCTOS
 
+// $CARDS.childNodes.forEach(e => {
+//     if(e.nodeName == "DIV"){
+//         e.childNodes[1].addEventListener('click',(el)=>{
 
+//                 console.log(el.target.id)
+//                 let productoSeleccionado
+//                 productos.filter(e => {
+//                     if(e.id == el.target.id){
+//                         productoSeleccionado = {
+//                             tipo: e.tipo,
+//                             id: e.id,
+//                             img: e.img,
+//                             title: e.title,
+//                             info: e.info,
+//                             talles: e.talles,
+//                             precio: e.precio,
+//                             stock: e.stock,
+//                         }
+//                     }
+//                 })
+//                 console.log(productoSeleccionado)
+//                 const $$MOSTRAR = document.createElement("div")
+//                 $$MOSTRAR.setAttribute("class","viewCard")
+//                 $$MOSTRAR.innerHTML += `
+//                     <div style="position: relative">        
+//                         <span id="CERRAR" style="position: relative; z-index:2">
+//                             <img src="https://img.icons8.com/fluency/48/null/close-window.png"/>
+//                         </span>
+//                     </div>
+//                 `
+                
+//                 $CARDS.append($$MOSTRAR)
 
+//                 let $$CERRAR = document.getElementById("CERRAR")
 
+//                 $$CERRAR.addEventListener('click',()=>{
+//                     $CARDS.removeChild($$MOSTRAR)
+//                 })
 
-// MEJORAR
+//         })
+//     }
+// })
 
-let $VIEW = document.querySelectorAll(".ctnCard")
-
-$VIEW.forEach(e => {
-    e.addEventListener("click",()=>{
-        console.log(e)
-        const $$MOSTRAR = document.createElement("div")
-        // $$MOSTRAR.setAttribute("id","MOSTRAR")
-        $$MOSTRAR.style.position = "fixed"
-        $$MOSTRAR.style.top = "0"
-        $$MOSTRAR.style.zIndex = "10"
-        $$MOSTRAR.style.width = "100%"
-        $$MOSTRAR.style.height = "100%"
-        $$MOSTRAR.style.background = "#fff"
-        $$MOSTRAR.innerHTML = `
-        <div style="position: relative">        
-        <span class="btn" id="CERRAR" style="position: relative; z-index:2">
-        <img src="https://img.icons8.com/fluency/48/null/close-window.png"/>
-        </span>
-        <div>${e.innerHTML}</div>
-        </div>
-        `
-        $CARDS.append($$MOSTRAR)
-        
-
-        let $$CERRAR = document.getElementById("CERRAR")
-
-        $$CERRAR.addEventListener('click',()=>{
-            $CARDS.removeChild($$MOSTRAR)
-        })
-    })
-})
 

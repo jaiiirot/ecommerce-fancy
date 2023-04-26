@@ -82,7 +82,17 @@ export const PRODUCTOS =
     },
     {
         tipo:"p",
-        id: 8,
+        id: 9,
+        img:"https://http2.mlstatic.com/D_NQ_NP_693404-MLA54823291836_042023-W.webp",
+        title: "Pantalon",
+        info: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+        talles: "40,42,44",
+        precio: "4000",
+        stock: "24"
+    },
+    {
+        tipo:"p",
+        id: 10,
         img:"https://http2.mlstatic.com/D_NQ_NP_693404-MLA54823291836_042023-W.webp",
         title: "Pantalon",
         info: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
