@@ -1,15 +1,77 @@
 import { componente } from "./template.js";
 import { PRODUCTOS } from "./productos.js";
 
+// SELECCION DE PRODUCTOS
+const ACTIVARELSELECCIONADOR = () => {
+  $CARDS.childNodes.forEach((nodosCard) => {
+    if (nodosCard.nodeName == "DIV") {
+      nodosCard.childNodes[1].addEventListener("click", (nodoHijoCard) => {
+        let productoSeleccionado;
+        productos.filter((elementoFiltrar) => {
+          if (elementoFiltrar.id == nodoHijoCard.target.id) {
+            productoSeleccionado = objetoElementos(elementoFiltrar);
+          }
+        });
+        const $$MOSTRAR = document.createElement("div");
+        $$MOSTRAR.setAttribute("class", "viewCard");
+        $$MOSTRAR.innerHTML +=  
+        `  
+              <img class="viewCard__btn" id="CERRAR" src="https://img.icons8.com/fluency/48/null/close-window.png"/>
+              <div class="viewCard__ctn d-f-cc">
+                  <div class="viewCard__ctnImag">
+                      <img src="${productoSeleccionado.img}" />
+                  </div>
+                  <div class="viewCard__ctnInfo d-f-cc">
+                      <h1>${productoSeleccionado.title}</h1>
+                      <h2>$ ${productoSeleccionado.precio}</h2>
+                      <h3>LOS TALLES DISPONIBLES SON: </h3>
+                      <select class="btn">                    
+                      ${productoSeleccionado.talles.split(",").map((e) => {
+                        return `<option>${e}</option>`;
+                      })}
+                      </select>
+                      <h3>EL STOCK DISPONIBLE ES: </h3>
+                      <h4>${productoSeleccionado.stock}</h4>
+                      <p>$${productoSeleccionado.info}</p>
+                      <input class="btn" type="submit" value="AGREGAR AL CARRITO">
+                  </div>
+              </div>
+              `;
+        componente.main.$MAIN.append($$MOSTRAR);
+        componente.main.$MAIN.childNodes[1].style.display = "none";
+        let $$CERRAR = document.getElementById("CERRAR");
+        $$CERRAR.style.cursor = "pointer";
+        $$CERRAR.addEventListener("click", () => {
+          componente.main.$MAIN.removeChild($$MOSTRAR);
+          componente.main.$MAIN.childNodes[1].style.display = "block";
+        });
+      });
+    }
+  });
+};
+// CARGAR PRODUCTOS
+const CARGARPRODUCTOS = (filtro) => {
+  $CARDS.innerHTML = ``;
+  productos.forEach((e) => {
+    if (e.tipo == filtro) {
+      MOSTRARPRODUCTOS(e);
+    }
+    if (filtro == "") {
+      MOSTRARPRODUCTOS(e);
+    }
+  });
+  ACTIVARELSELECCIONADOR();
+};
 // MOSTRAR PRODUCTOS
 const MOSTRARPRODUCTOS = (e) => {
-    let option = {
-        r:"https://img.icons8.com/ios-filled/20/null/polo-shirt.png",
-        p:"https://img.icons8.com/ios-filled/20/null/trousers.png",
-        z:"https://img.icons8.com/ios-filled/20/null/sneakers.png",
-    }
-  const $productos = `
-    <div class="ctnCard">
+  let option = {
+    r: "https://img.icons8.com/ios-filled/20/null/polo-shirt.png",
+    p: "https://img.icons8.com/ios-filled/20/null/trousers.png",
+    z: "https://img.icons8.com/ios-filled/20/null/sneakers.png",
+  };
+  // const $productos = componente.main.producto(option,e) 
+  const $productos =  
+  `  <div class="ctnCard">
         <div class="ctnCard__view" id="${e.id}"></div>
         <div class="ctnCard__tipo">
             <img src="${option[e.tipo]}"/>
@@ -113,89 +175,20 @@ if ($CARDS.innerText === "" || nombreUsuario === "") {
     MOSTRARPRODUCTOS(e);
   });
 }
-// SELECCION DE PRODUCTOS
-$CARDS.childNodes.forEach((nodosCard) => {
-  if (nodosCard.nodeName == "DIV") {
-    nodosCard.childNodes[1].addEventListener("click", (nodoHijoCard) => {
-      let productoSeleccionado;
-      productos.filter((elementoFiltrar) => {
-        if (elementoFiltrar.id == nodoHijoCard.target.id) {
-          productoSeleccionado = objetoElementos(elementoFiltrar);
-        }
-      });
-      const $$MOSTRAR = document.createElement("div");
-      $$MOSTRAR.setAttribute("class", "viewCard");
-      $$MOSTRAR.innerHTML += `       
-            <img class="viewCard__btn" id="CERRAR" src="https://img.icons8.com/fluency/48/null/close-window.png"/>
-            <div class="viewCard__ctn d-f-cc">
-                <div class="viewCard__ctnImag">
-                    <img src="${productoSeleccionado.img}" />
-                </div>
-                <div class="viewCard__ctnInfo d-f-cc">
-                    <h1>${productoSeleccionado.title}</h1>
-                    <h2>$ ${productoSeleccionado.precio}</h2>
-                    <h3>LOS TALLES DISPONIBLES SON: </h3>
-                    <select class="btn">                    
-                    ${productoSeleccionado.talles.split(",").map((e) => {
-                      return `<option>${e}</option>`;
-                    })}
-                    </select>
-                    <h3>EL STOCK DISPONIBLE ES: </h3>
-                    <h4>${productoSeleccionado.stock}</h4>
-                    <p>$${productoSeleccionado.info}</p>
-                    <input class="btn" type="submit" value="AGREGAR AL CARRITO">
-                </div>
-            </div>
-            `;
-      // $CARDS.append($$MOSTRAR)
-      componente.main.$MAIN.append($$MOSTRAR);
-      componente.main.$MAIN.childNodes[1].style.display = "none";
-      let $$CERRAR = document.getElementById("CERRAR");
-      $$CERRAR.style.cursor = "pointer";
-      $$CERRAR.addEventListener("click", () => {
-        componente.main.$MAIN.removeChild($$MOSTRAR);
-        componente.main.$MAIN.childNodes[1].style.display = "block";
-      });
-    });
-  }
-});
 
+// SELECCIONAR MEDIANTE HEADER
 const $listaHeader = document.querySelector(".header__ctnList");
 $listaHeader.childNodes.forEach((e) => {
   e.addEventListener("click", (e) => {
-    switch (e.target.id) {
-      case "PRODUCTOS":
-        $CARDS.innerHTML = ``
-        productos.forEach((e) => {
-            MOSTRARPRODUCTOS(e);
-        });
-        break;
-      case "REMERAS":
-        $CARDS.innerHTML = ``
-        productos.forEach((e) => {
-            if (e.tipo == "r") {
-              MOSTRARPRODUCTOS(e);
-            }
-          });
-        break;
-      case "PANTALONES":
-        $CARDS.innerHTML = ``
-        productos.forEach((e) => {
-            if (e.tipo == "p") {
-              MOSTRARPRODUCTOS(e);
-            }
-          });
-        break;
-      case "ZAPATILLAS":
-        $CARDS.innerHTML = ``
-        productos.forEach((e) => {
-            if (e.tipo == "z") {
-              MOSTRARPRODUCTOS(e);
-            }
-          });
-        break;
-      default:
-        break;
-    }
+    const opciones = {
+      PRODUCTOS: "",
+      REMERAS: "r",
+      PANTALONES: "p",
+      ZAPATILLAS: "z",
+    };
+    CARGARPRODUCTOS(opciones[e.target.id]);
   });
 });
+
+// SELECCION DE PRODUCTOS
+ACTIVARELSELECCIONADOR();
