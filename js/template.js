@@ -1,26 +1,26 @@
 const headerPrincipal = `
 <nav class="header__ctn">
-<ul class="header__ctnList">
-    <li><a id="PRODUCTOS" href="#">Productos</a>
-        <hr>
-    </li>
-    <li><a id="REMERAS" href="#">Remeras</a>
-        <hr>
-    </li>
-    <li><a id="PANTALONES" href="#">Pantalones</a>
-        <hr>
-    </li>
-    <li><a id="ZAPATILLAS" href="#">Zapatillas</a>
-        <hr>
-    </li>
-</ul>
+    <ul class="header__ctnList">
+        <li><a id="PRODUCTOS" href="#">Productos</a>
+            <hr>
+        </li>
+        <li><a id="REMERAS" href="#">Remeras</a>
+            <hr>
+        </li>
+        <li><a id="PANTALONES" href="#">Pantalones</a>
+            <hr>
+        </li>
+        <li><a id="ZAPATILLAS" href="#">Zapatillas</a>
+            <hr>
+        </li>
+    </ul>
 </nav>
 `;
-
 const mainPrincipal = `
 <section class="sec1Ix">
     <div class="sec1Ix__title">
         <h1 class="ff-rocksalt">Todos los productos disponibles de ATT</h1>
+        <h2>¡Bienvenido ${localStorage.getItem('nombre.usuario')}!</h2>
         <div id="CARDS" class="sec1Ix__ctnCards">
             <!-- ACA VA LOS PRODUCTOS -->
         </div>
@@ -43,6 +43,7 @@ const formularioRegistro = `
 const formularioLogin = `
 <form class="logReg__ctn" action="">
 <h2>Iniciar Sesion</h2>
+<input id="text" name="text" type="text" placeholder="Nombre Usuario:">
 <input id="email" name="email" type="email" placeholder="E-mail, teléfono o usuario:">
 <input id="password" name="password" type="password" placeholder="Contraseña:">
 

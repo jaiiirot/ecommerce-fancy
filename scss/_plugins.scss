@@ -55,54 +55,6 @@
     }
 }
 
-
-// ngt (navegation)
-
-.ngt{
-    position:fixed;
-    height: 10vh;
-    top: 0;
-    width: 100%;
-    justify-content: center;
-
-    &__ctnLogo {
-        text-decoration: none;
-        font-family: 'Rock Salt', cursive;
-        font-size: 1.5rem;
-        display: flex;
-        align-items: center;
-        height: 100px;
-        color: #fff;
-        &:hover > img{
-            transform: rotate(360deg);
-        }
-        img {
-            transition: all 1s;
-            height: 40px;
-        }
-    }
-
-    form{
-        justify-content: space-between;
-        width: 100%;
-        height: 10vh;
-        ul{
-            li{
-                height: 25px;
-                input{
-                    width: 400px;
-                    padding: 6px 15px;
-                }
-            }
-        }
-    }
-    // .ngt__ctnBuscar{}
-    &__ctnPerson{
-        list-style-type: none;
-        gap: 10px;
-    }
-}
-
 /* APLICAR DISPLAY NONE */
 .d-none{
     display: none

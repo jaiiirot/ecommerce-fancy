@@ -5,16 +5,11 @@
     height: 10vh;
     bottom: 0;
     width: 100%;
-    justify-content: space-between;
+    justify-content: center;
 
     & *{
         color: #fff;
         list-style-type: none;
         text-decoration: none;
-    }
-    &__redes{
-        ul{
-            gap: 20px;
-        }
     }
 }

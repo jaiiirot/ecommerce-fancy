@@ -1,214 +1,39 @@
-// console.clear()
-import { PRODUCTOS } from './productos.js';
-
-
-// $listaHeader.addEventListener('click',(e) =>{
-//     console.log(e)
-// })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const $CARDS = document.getElementById('CARDS')
-
-// const Agregar = () => {
-//     alert("A continuacion agregar los productos")
-//     let productos = []
-//     let condition = false
-//     do {
-//         let tProd = prompt("agregar tipo producto \n\n ( r ) = remera \n ( p ) = pantalon \n ( z ) = zapatilla").toLocaleLowerCase()
-//         let iProd = prompt("agregar imagen de internet producto")
-//         let tiProd = prompt("agregar titulo producto")
-//         let inProd = prompt("agregar informacion producto")
-//         let taProd = prompt("agregar talle producto")
-//         let pProd = prompt("agregar precio producto")
-//         let sProd = prompt("agregar stock producto")
-
-//         productos.push(
-//             {
-//                 tipo: tProd,
-//                 id: (Math.trunc(Math.random() * 150)),
-//                 img: iProd,
-//                 title: tiProd,
-//                 info: inProd,
-//                 talles: taProd,
-//                 precio: pProd,
-//                 stock: sProd,
-//             }
-//         )
-//         condition = confirm("Deseas Agregar mas productos")
-//     } while (condition);
-//     return productos
-// }
-
-// const buscar = (productos) => {
-//     let option = prompt("buscar por tipo producto \n\n ( r ) = remera \n ( p ) = pantalon \n ( z ) = zapatilla").toLocaleLowerCase()
-
-//     productos.forEach((e) => {
-//         if (e.tipo == option) {
-//             MOSTRARPRODUCTOS(e)
-//         }
-//     })
-// }
-
-// const eliminar = (productos) => {
-//     let option = parseInt(prompt("eliminar por id producto"))
-
-//     let nuevoProducto = productos.filter(e => e.id !== option);
-
-//     return nuevoProducto
-// }
-
-
-// const MOSTRARPRODUCTOS = (e)=>{
-//     const $productos =
-//     `
-//     <div class="ctnCard">
-//         <div class="ctnCard__view" id="${e.id}"></div>
-//         <div class="ctnCard__tipo">
-//             <img src="https://img.icons8.com/ios-filled/20/null/polo-shirt.png"/>
-//         </div>
-//         <div class="ctnCard__img">
-//             <img src="${e.img}" alt="">
-//         </div>
-//         <div class="ctnCard__info">
-//             <h4>${e.title}</h4>
-//             <p>${e.info}</p>
-//         </div>
-//         <div class="ctnCard__btns">
-//             <h4>$ ${e.precio}</h4>
-//             <button class="btn" type="submit"><i class="fa-solid fa-heart" style="color: #eb0000;"></i></button>
-//             <button class="btn" type="submit"><img src="https://img.icons8.com/color/24/null/add-shopping-cart--v1.png"/></button>
-//         </div>
-//     </div>
-//     `    
-//     $CARDS.innerHTML += $productos    
-// }
-
-
-// const nombreUsuario = prompt("Por favor ingresar el  nombre de usuario")
-// let confirmar = true
-// let productos = PRODUCTOS
-
-// if (nombreUsuario !== null) {
-
-//     do {
-//         alert(`BIENVENIDO ${nombreUsuario.toLocaleUpperCase()} A AESTHETIC`)
-
-//         let valor = prompt("DESEAS BUSCAR UN PRODUCTO O AGREGAR UN PRODUCTO \n (1)Agregar \n\n (2)Buscar \n\n (3)Eliminar \n\n (4)Salir")
-
-//         switch (valor) {
-//             case "1":
-//                 let nuevosProductos = Agregar()
-//                 productos = productos.concat(nuevosProductos)
-//                 alert(`SE AGREGO ${nuevosProductos.length} PRODUCTOS A LA BASE DE DATOS`)
-//                 break;
-//             case "2":
-//                 buscar(productos)
-//                 break;
-//             case "3":
-//                 productos = eliminar(productos)
-//                 break;
-//             default:
-//                 break;
-//         }
-        
-//         confirmar = !(confirm("SEGURO QUE DESEAS SALIR?"))
-
-//     } while (confirmar);
-// }
-
-// if($CARDS.innerText === "" || nombreUsuario === ""){
-//     productos.forEach((e) => {
-//         MOSTRARPRODUCTOS(e)
-//     })
-// }
-
-
-
-
-// // SELECCION DE PRODUCTOS
-
-// $CARDS.childNodes.forEach(e => {
-//     if(e.nodeName == "DIV"){
-//         e.childNodes[1].addEventListener('click',(el)=>{
-
-//                 console.log(el.target.id)
-//                 let productoSeleccionado
-//                 productos.filter(e => {
-//                     if(e.id == el.target.id){
-//                         productoSeleccionado = {
-//                             tipo: e.tipo,
-//                             id: e.id,
-//                             img: e.img,
-//                             title: e.title,
-//                             info: e.info,
-//                             talles: e.talles,
-//                             precio: e.precio,
-//                             stock: e.stock,
-//                         }
-//                     }
-//                 })
-//                 console.log(productoSeleccionado)
-//                 const $$MOSTRAR = document.createElement("div")
-//                 $$MOSTRAR.setAttribute("class","viewCard")
-//                 $$MOSTRAR.innerHTML += `
-//                     <div style="position: relative">        
-//                         <span id="CERRAR" style="position: relative; z-index:2">
-//                             <img src="https://img.icons8.com/fluency/48/null/close-window.png"/>
-//                         </span>
-//                     </div>
-//                 `
-                
-//                 $CARDS.append($$MOSTRAR)
-
-//                 let $$CERRAR = document.getElementById("CERRAR")
-
-//                 $$CERRAR.addEventListener('click',()=>{
-//                     $CARDS.removeChild($$MOSTRAR)
-//                 })
-
-//         })
-//     }
-// })
-
-
+import { componente } from "./template.js";
+import { productoCarrito } from "./eventos.js";
+import { PRODUCTOS } from "./productos.js";
+
+const $ABRIRCARRITO = document.querySelector("#AbrirCarrito");
+$ABRIRCARRITO.addEventListener("click", () => {
+  const $$MOSTRAR = document.createElement("div");
+  $$MOSTRAR.setAttribute("class", "viewCard");
+  $$MOSTRAR.setAttribute("style", "overflow-y:scroll");
+
+  let a = [];
+  let carritoLocal = JSON.parse(localStorage.getItem("CARRITO"));
+  console.log(carritoLocal);
+
+  $$MOSTRAR.innerHTML += `  
+    <img class="viewCard__btn" id="CERRAR" src="https://img.icons8.com/fluency/48/null/close-window.png"/>
+    <div class="viewCard__ctn d-f-cc" style="flex-direction: column">
+        ${carritoLocal.map((e) => {
+            return `
+            <div class="cardList d-f-cc" style="">
+              <img src="${e.img}">
+              <div class="cardList__info">
+              <p>${e.title}</p>
+              <h3>${e.precio}</h3>
+              <input class="btn" value="Eliminar">
+              </div>  
+            </div>
+            `;
+        })}
+      </div>`;
+  componente.main.$MAIN.append($$MOSTRAR);
+  componente.main.$MAIN.childNodes[1].style.display = "none";
+  let $$CERRAR = document.getElementById("CERRAR");
+  $$CERRAR.style.cursor = "pointer";
+  $$CERRAR.addEventListener("click", () => {
+    componente.main.$MAIN.removeChild($$MOSTRAR);
+    componente.main.$MAIN.childNodes[1].style.display = "block";
+  });
+});

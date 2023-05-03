@@ -1,54 +1,98 @@
 /* =========================== MENU ==========================================*/
 
 .header {
-    width: 15%;
-    height: 80vh;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    & *{
-        color: #ffffff;
-    }
+  width: 15%;
+  height: 80vh;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  & * {
+    color: #ffffff;
+  }
 
-    &__ctn {
-        height: inherit;
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        flex-direction: column;
-        
-        &List {
-            width: 100%;
-            list-style: none;
-            padding: 0;
-            li {
-                transition: 100ms all ease-in;
-                padding: 10px 0px;
-                text-align: center;
-                a {
-                    display: block;
-                    width: 100%;
-                    font-size: 1.3rem;
-                    text-decoration: none;
-                }
+  &__ctn {
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
 
-                hr {
-                    width: 50%;
-                    height: 4px;
-                    border: #ffffff;
-                    transition: 300ms all ease-in;
-                }
-                &:hover{
-                    cursor: pointer;
-                    a+hr {
-                        width: 100%;
-                        background: #ffffff;
-                    }
-                }
-            }
+    &List {
+      width: 100%;
+      list-style: none;
+      padding: 0;
+      li {
+        transition: 100ms all ease-in;
+        margin: 10% 0px;
+        text-align: center;
+        a {
+          display: block;
+          width: 100%;
+          font-size: 1.3rem;
+          text-decoration: none;
         }
+
+        hr {
+          width: 50%;
+          height: 4px;
+          border: #ffffff;
+          transition: 300ms all ease-in;
+        }
+        &:hover {
+          cursor: pointer;
+          a + hr {
+            width: 100%;
+            background: #ffffff;
+          }
+        }
+      }
     }
+  }
+}
 
+// ngt (navegation)
 
+.ngt {
+  position: fixed;
+  height: 10vh;
+  top: 0;
+  width: 100%;
+  justify-content: center;
+  &__ctnLogo {
+    text-decoration: none;
+    font-family: "Rock Salt", cursive;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    height: 100px;
+    color: #fff;
+    &:hover img {
+      transform: rotate(360deg);
+    }
+    img {
+      transition: all 1s;
+      height: 40px;
+    }
+  }
+
+  form {
+    justify-content: space-around;
+    width: 100%;
+    height: 10vh;
+    ul {
+      li {
+        height: 25px;
+        input {
+          width: 400px;
+          padding: 6px 15px;
+        }
+      }
+    }
+  }
+  // .ngt__ctnBuscar{}
+  &__ctnPerson {
+    list-style-type: none;
+    gap: 10px;
+  }
 }

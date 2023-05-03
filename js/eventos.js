@@ -2,9 +2,27 @@ import { componente } from "./template.js";
 import { PRODUCTOS } from "./productos.js";
 
 // SELECCION DE PRODUCTOS
+export let productoCarrito = []
+
 const ACTIVARELSELECCIONADOR = () => {
   $CARDS.childNodes.forEach((nodosCard) => {
-    if (nodosCard.nodeName == "DIV") {
+
+    if (nodosCard.nodeName == "DIV") {  
+      const AGREGARCARRITO = (padre) =>{
+        const $AGREGARCARRITO = padre.querySelector(".pushCard")
+
+        $AGREGARCARRITO.addEventListener('click', (e)=>{
+          productos.filter((elementoFiltrar) => {
+            if (elementoFiltrar.id == e.target.id) {
+              productoCarrito.push(objetoElementos(elementoFiltrar));
+            }
+          });
+          console.log(productoCarrito)
+          localStorage.setItem("CARRITO",JSON.stringify(productoCarrito))
+        })
+      }
+      AGREGARCARRITO(nodosCard)
+      
       nodosCard.childNodes[1].addEventListener("click", (nodoHijoCard) => {
         let productoSeleccionado;
         productos.filter((elementoFiltrar) => {
@@ -14,35 +32,37 @@ const ACTIVARELSELECCIONADOR = () => {
         });
         const $$MOSTRAR = document.createElement("div");
         $$MOSTRAR.setAttribute("class", "viewCard");
-        $$MOSTRAR.innerHTML +=  
-        `  
-              <img class="viewCard__btn" id="CERRAR" src="https://img.icons8.com/fluency/48/null/close-window.png"/>
-              <div class="viewCard__ctn d-f-cc">
-                  <div class="viewCard__ctnImag">
-                      <img src="${productoSeleccionado.img}" />
-                  </div>
-                  <div class="viewCard__ctnInfo d-f-cc">
-                      <h1>${productoSeleccionado.title}</h1>
-                      <h2>$ ${productoSeleccionado.precio}</h2>
-                      <h3>LOS TALLES DISPONIBLES SON: </h3>
-                      <select class="btn">                    
-                      ${productoSeleccionado.talles.split(",").map((e) => {
-                        return `<option>${e}</option>`;
-                      })}
-                      </select>
-                      <h3>EL STOCK DISPONIBLE ES: </h3>
-                      <h4>${productoSeleccionado.stock}</h4>
-                      <p>$${productoSeleccionado.info}</p>
-                      <input class="btn" type="submit" value="AGREGAR AL CARRITO">
-                  </div>
-              </div>
-              `;
-        componente.main.$MAIN.append($$MOSTRAR);
-        componente.main.$MAIN.childNodes[1].style.display = "none";
-        let $$CERRAR = document.getElementById("CERRAR");
-        $$CERRAR.style.cursor = "pointer";
-        $$CERRAR.addEventListener("click", () => {
-          componente.main.$MAIN.removeChild($$MOSTRAR);
+        $$MOSTRAR.innerHTML += `  
+        <img class="viewCard__btn" id="CERRAR" src="https://img.icons8.com/fluency/48/null/close-window.png"/>
+        <div class="viewCard__ctn d-f-cc">
+        <div class="viewCard__ctnImag">
+        <img src="${productoSeleccionado.img}" />
+        </div>
+        <div class="viewCard__ctnInfo d-f-cc">
+        <h1>${productoSeleccionado.title}</h1>
+        <h2>$ ${productoSeleccionado.precio}</h2>
+        <h3>LOS TALLES DISPONIBLES SON: </h3>
+        <select class="btn">                    
+        ${productoSeleccionado.talles
+          .split(",")
+          .map((elementTalles) => {
+            return `<option id="${elementTalles}">${elementTalles}</option>`;
+          })}
+          </select>
+          <h3>EL STOCK DISPONIBLE ES: </h3>
+          <h4>${productoSeleccionado.stock}</h4>
+          <p>$${productoSeleccionado.info}</p>
+          <input id="${productoSeleccionado.id}" class="btn pushCard" type="submit" value="AGREGAR AL CARRITO">
+          </div>
+          </div>
+          `;
+          componente.main.$MAIN.append($$MOSTRAR);
+          componente.main.$MAIN.childNodes[1].style.display = "none";
+          AGREGARCARRITO($$MOSTRAR)
+          let $$CERRAR = document.getElementById("CERRAR");
+          $$CERRAR.style.cursor = "pointer";
+          $$CERRAR.addEventListener("click", () => {
+            componente.main.$MAIN.removeChild($$MOSTRAR);
           componente.main.$MAIN.childNodes[1].style.display = "block";
         });
       });
@@ -69,9 +89,8 @@ const MOSTRARPRODUCTOS = (e) => {
     p: "https://img.icons8.com/ios-filled/20/null/trousers.png",
     z: "https://img.icons8.com/ios-filled/20/null/sneakers.png",
   };
-  // const $productos = componente.main.producto(option,e) 
-  const $productos =  
-  `  <div class="ctnCard">
+  // const $productos = componente.main.producto(option,e)
+  const $productos = `  <div class="ctnCard">
         <div class="ctnCard__view" id="${e.id}"></div>
         <div class="ctnCard__tipo">
             <img src="${option[e.tipo]}"/>
@@ -81,12 +100,10 @@ const MOSTRARPRODUCTOS = (e) => {
         </div>
         <div class="ctnCard__info">
             <h4>${e.title}</h4>
-            <p>${e.info}</p>
-        </div>
-        <div class="ctnCard__btns">
             <h4>$ ${e.precio}</h4>
-            <button class="btn" type="submit"><i class="fa-solid fa-heart" style="color: #eb0000;"></i></button>
-            <button class="btn" type="submit"><img src="https://img.icons8.com/color/24/null/add-shopping-cart--v1.png"/></button>
+        </div>
+        <div class="ctnCard__btns d-f-cc">
+            <input id="${e.id}" class="btn pushCard" type="submit" value="Agregar Carrito">
         </div>
     </div>
     `;
@@ -116,17 +133,24 @@ const AbrirCerrarCargar = (elemento, tiempo, top, display) => {
   }, tiempo);
 };
 
+// Formulario
 const obtenerFormulario = (e) => {
   if (e.submitter.value == "INICIAR SESION") {
     let usuario = {
-      email: e.target[0].value,
-      password: e.target[1].value,
+      nombre: e.target[0].value,
+      email: e.target[1].value,
+      password: e.target[2].value,
     };
     console.log(usuario);
+    localStorage.setItem("nombre.usuario",usuario.nombre)
+    localStorage.setItem("email.usuario",usuario.email)
+    localStorage.setItem("password.usuario",usuario.password)
   }
+  
   if (e.submitter.value == "CREAR UNA CUENTA") {
     $CTNFORMULARIOS.innerHTML = componente.formularioRegistro;
   }
+
   if (e.submitter.value == "CREAR CUENTA") {
     let usuario = {
       email: e.target[0].value,
@@ -136,6 +160,7 @@ const obtenerFormulario = (e) => {
     };
     console.log(usuario);
   }
+
   if (e.submitter.value == "YA TENGO CUENTA") {
     $CTNFORMULARIOS.innerHTML += componente.formularioLogin;
   }
@@ -163,6 +188,7 @@ $BOTONCERRAR.addEventListener("click", () => {
 $BOTONABRIR.addEventListener("click", () => {
   AbrirCerrarCargar($LOGREG, 800, "0vh", "flex");
 });
+
 // CERRAR LOGIN Y REGISTER
 $FORMULARIO.addEventListener("submit", (e) => {
   e.preventDefault();
