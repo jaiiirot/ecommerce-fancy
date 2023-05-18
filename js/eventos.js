@@ -2,27 +2,26 @@ import { componente } from "./template.js";
 import { PRODUCTOS } from "./productos.js";
 
 // SELECCION DE PRODUCTOS
-export let productoCarrito = []
+export let productoCarrito = [];
 
 const ACTIVARELSELECCIONADOR = () => {
   $CARDS.childNodes.forEach((nodosCard) => {
+    if (nodosCard.nodeName == "DIV") {
+      const AGREGARCARRITO = (padre) => {
+        const $AGREGARCARRITO = padre.querySelector(".pushCard");
 
-    if (nodosCard.nodeName == "DIV") {  
-      const AGREGARCARRITO = (padre) =>{
-        const $AGREGARCARRITO = padre.querySelector(".pushCard")
-
-        $AGREGARCARRITO.addEventListener('click', (e)=>{
+        $AGREGARCARRITO.addEventListener("click", (e) => {
           productos.filter((elementoFiltrar) => {
             if (elementoFiltrar.id == e.target.id) {
               productoCarrito.push(objetoElementos(elementoFiltrar));
             }
           });
-          console.log(productoCarrito)
-          localStorage.setItem("CARRITO",JSON.stringify(productoCarrito))
-        })
-      }
-      AGREGARCARRITO(nodosCard)
-      
+          console.log(productoCarrito);
+          localStorage.setItem("CARRITO", JSON.stringify(productoCarrito));
+        });
+      };
+      AGREGARCARRITO(nodosCard);
+
       nodosCard.childNodes[1].addEventListener("click", (nodoHijoCard) => {
         let productoSeleccionado;
         productos.filter((elementoFiltrar) => {
@@ -43,26 +42,26 @@ const ACTIVARELSELECCIONADOR = () => {
         <h2>$ ${productoSeleccionado.precio}</h2>
         <h3>LOS TALLES DISPONIBLES SON: </h3>
         <select class="btn">                    
-        ${productoSeleccionado.talles
-          .split(",")
-          .map((elementTalles) => {
-            return `<option id="${elementTalles}">${elementTalles}</option>`;
-          })}
+        ${productoSeleccionado.talles.split(",").map((elementTalles) => {
+          return `<option id="${elementTalles}">${elementTalles}</option>`;
+        })}
           </select>
           <h3>EL STOCK DISPONIBLE ES: </h3>
           <h4>${productoSeleccionado.stock}</h4>
           <p>$${productoSeleccionado.info}</p>
-          <input id="${productoSeleccionado.id}" class="btn pushCard" type="submit" value="AGREGAR AL CARRITO">
+          <input id="${
+            productoSeleccionado.id
+          }" class="btn pushCard" type="submit" value="AGREGAR AL CARRITO">
           </div>
           </div>
           `;
-          componente.main.$MAIN.append($$MOSTRAR);
-          componente.main.$MAIN.childNodes[1].style.display = "none";
-          AGREGARCARRITO($$MOSTRAR)
-          let $$CERRAR = document.getElementById("CERRAR");
-          $$CERRAR.style.cursor = "pointer";
-          $$CERRAR.addEventListener("click", () => {
-            componente.main.$MAIN.removeChild($$MOSTRAR);
+        componente.main.$MAIN.append($$MOSTRAR);
+        componente.main.$MAIN.childNodes[1].style.display = "none";
+        AGREGARCARRITO($$MOSTRAR);
+        let $$CERRAR = document.getElementById("CERRAR");
+        $$CERRAR.style.cursor = "pointer";
+        $$CERRAR.addEventListener("click", () => {
+          componente.main.$MAIN.removeChild($$MOSTRAR);
           componente.main.$MAIN.childNodes[1].style.display = "block";
         });
       });
@@ -103,7 +102,9 @@ const MOSTRARPRODUCTOS = (e) => {
             <h4>$ ${e.precio}</h4>
         </div>
         <div class="ctnCard__btns d-f-cc">
-            <input id="${e.id}" class="btn pushCard" type="submit" value="Agregar Carrito">
+            <input id="${
+              e.id
+            }" class="btn pushCard" type="submit" value="Agregar Carrito">
         </div>
     </div>
     `;
@@ -142,11 +143,11 @@ const obtenerFormulario = (e) => {
       password: e.target[2].value,
     };
     console.log(usuario);
-    localStorage.setItem("nombre.usuario",usuario.nombre)
-    localStorage.setItem("email.usuario",usuario.email)
-    localStorage.setItem("password.usuario",usuario.password)
+    localStorage.setItem("nombre.usuario", usuario.nombre);
+    localStorage.setItem("email.usuario", usuario.email);
+    localStorage.setItem("password.usuario", usuario.password);
   }
-  
+
   if (e.submitter.value == "CREAR UNA CUENTA") {
     $CTNFORMULARIOS.innerHTML = componente.formularioRegistro;
   }

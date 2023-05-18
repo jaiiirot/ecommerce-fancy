@@ -8,25 +8,25 @@ $ABRIRCARRITO.addEventListener("click", () => {
   $$MOSTRAR.setAttribute("class", "viewCard");
   $$MOSTRAR.setAttribute("style", "overflow-y:scroll");
 
-  let a = [];
-  let carritoLocal = JSON.parse(localStorage.getItem("CARRITO"));
+  let carritoLocal = (JSON.parse(localStorage.getItem("CARRITO")));
   console.log(carritoLocal);
 
   $$MOSTRAR.innerHTML += `  
     <img class="viewCard__btn" id="CERRAR" src="https://img.icons8.com/fluency/48/null/close-window.png"/>
-    <div class="viewCard__ctn d-f-cc" style="flex-direction: column">
+    <div class="viewCard__ctn d-f-cc" style="flex-direction: column; ">
         ${carritoLocal.map((e) => {
-            return `
-            <div class="cardList d-f-cc" style="">
+            return ` 
+            <div class="cardList d-f-cc" >
               <img src="${e.img}">
-              <div class="cardList__info">
+              <div class="cardList__info d-f-cc">
               <p>${e.title}</p>
               <h3>${e.precio}</h3>
-              <input class="btn" value="Eliminar">
+              <input class="btn" type="number" value="4" style="width:50px;">
+              <input class="btn" type="submit" value="Eliminar">
               </div>  
             </div>
             `;
-        })}
+        }).join('')}
       </div>`;
   componente.main.$MAIN.append($$MOSTRAR);
   componente.main.$MAIN.childNodes[1].style.display = "none";

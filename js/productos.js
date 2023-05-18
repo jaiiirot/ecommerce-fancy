@@ -152,7 +152,7 @@ export const PRODUCTOS = [
   {
     tipo: "z",
     id: 16,
-    img: "https://http2.mlstatic.com/D_NQ_NP_970156-MLA44937179870_022021-O.webp",
+    img: "https://http2.mlstatic.com/D_NQ_NP_698855-MLA69325619441_052023-O.webp",
     title: "Zapatillas urbanas",
     info: "Zapatillas urbanas de diseño moderno y descontracturado, perfectas para el día a día.",
     talles: "37,38,39,40,41,42,43,44,45",
