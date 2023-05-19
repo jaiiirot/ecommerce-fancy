@@ -1,5 +1,4 @@
 import listaProductos from "./productos.json" assert { type: "json" };
-// import listaUsuarios from "./usuarios.json" assert { type: "json" };
 import { componente } from "./template.js";
 
 const $HEADER = document.getElementById("HEADER");
@@ -169,7 +168,7 @@ const $BOTONABRIR = document.getElementById("abrirLogReg");
 
 // PRELOADER
 window.addEventListener("load", () => {
-  AbrirCerrarCargar($RELOAD, 2000, "-100vh", "none");
+  AbrirCerrarCargar($RELOAD, 5000, "-100vh", "none");
 });
 // ABRIR LOS FORMULARIOS
 if (localStorage.getItem("usuario") === "") {

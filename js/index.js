@@ -1,24 +1,6 @@
 import { componente } from "./template.js";
-// import listaProductos from "./productos.json" assert { type: "json" };
 import listaUsuarios from "./usuarios.json" assert { type: "json" };
-// llamo a los usuarios y productos
-// const todosProductos = listaProductos;
-// localStorage.setItem('USUARIOS',JSON.stringify(listaUsuarios))
 let todosUsuarios = JSON.parse(localStorage.getItem('USUARIOS'))||listaUsuarios
-// // Clase paara los productos
-// class Producto {
-//   constructor(tipo, id, img, title, info, talles, precio, stock) {
-//     this.id = id;
-//     this.tipo = tipo;
-//     this.img = img;
-//     this.title = title;
-//     this.info = info;
-//     this.talles = talles;
-//     this.precio = precio;
-//     this.stock = stock;
-//   }
-// }
-// clas para los usuario
 class Usuario {
   constructor(id, nombre, email, contrasenia) {
     this.id = id;
@@ -107,21 +89,3 @@ $cerrarFormularios.addEventListener('click',()=>{
   localStorage.setItem('usuario',"")
   window.location = "../template/aesthetic.html";
 })
-
-
-
-
-
-
-// $formulario.innerHTML = componente.formularioLogin
-// validarUsuario();
-// // MOSTRAR PRODUCTOS
-// const publicarProductos = () => {};
-// // FILTRAR PRODUCTOS
-// const filtrarProductos = () => {};
-// //AGREGAR PRODUCTO A CARRITO
-// const agregarCarrito = () => {};
-// // LIMPIAR CARRITO
-// const limpiarCarrito = () => {};
-// // ELIMINAR PRODUCTO DE CARRITO
-// const eliminarProductoCarrito = () => {};

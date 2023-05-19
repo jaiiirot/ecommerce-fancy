@@ -1,4 +1,3 @@
-import { productoCarrito } from "./eventos.js";
 import { componente } from "./template.js";
 
 const $ABRIRCARRITO = document.querySelector("#AbrirCarrito");
@@ -74,11 +73,6 @@ const ABRIRCARRITO = () => {
         $MAIN.childNodes[1].style.display = "block";
       });
     });
-    // $ELIMINARPRODUCTO.addEventListener('click',()=>{
-    //   // carritoLocal.filter(e =>{
-    //   //   console.log('hoas')
-    //   // })
-    // })
     const $VACIARCARRITO = $$MOSTRAR.querySelector("#vaciarCarrito");
     $VACIARCARRITO.addEventListener("click", () => {
       carritoLocal = null;
