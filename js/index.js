@@ -1,5 +1,6 @@
 import { componente } from "./template.js";
 import listaUsuarios from "./usuarios.json" assert { type: "json" };
+
 let todosUsuarios = JSON.parse(localStorage.getItem('USUARIOS'))||listaUsuarios
 class Usuario {
   constructor(id, nombre, email, contrasenia) {
