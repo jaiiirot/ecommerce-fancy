@@ -20,7 +20,7 @@ const mainPrincipal = `
 <section class="sec1Ix">
     <div class="sec1Ix__title">
         <h1 class="ff-rocksalt">Todos los productos disponibles de ATT</h1>
-        <h2>¡Bienvenido ${localStorage.getItem('nombre.usuario')}!</h2>
+        <h2>¡ Bienvenido ${localStorage.getItem("usuario") || ""}!</h2>
         <div id="CARDS" class="sec1Ix__ctnCards">
             <!-- ACA VA LOS PRODUCTOS -->
         </div>
@@ -29,27 +29,29 @@ const mainPrincipal = `
 `;
 
 const formularioRegistro = `
-<form class="logReg__ctn" action="">
+<form class="logReg__ctn" id="formularioRegistro">
 <h2>Crear tu cuenta</h2>
+<input name="nombre" type="text" placeholder="Nombre Usuario">
 <input name="email" type="email" placeholder="E-mail">
 <input name="reemail" type="email" placeholder="Confirmar E-mail">
-<input name="password" type="password" placeholder="Contraseña">
+<input name="contrasenia" type="password" placeholder="Contraseña">
 <input name="repassword" type="password" placeholder="Confirmar Contraseña">
 
 <input class="btn" type="submit" value="CREAR CUENTA">
-<input class="btn" type="submit" value="YA TENGO CUENTA">
-</form>`;
+<span class="btn" id="iniciarSession">YA TENGO CUENTA</span>
+</form>
+`;
 
 const formularioLogin = `
-<form class="logReg__ctn" action="">
+<form class="logReg__ctn" action="" id="formularioLogin">
 <h2>Iniciar Sesion</h2>
-<input id="text" name="text" type="text" placeholder="Nombre Usuario:">
-<input id="email" name="email" type="email" placeholder="E-mail, teléfono o usuario:">
-<input id="password" name="password" type="password" placeholder="Contraseña:">
+<input id="text" name="nombre" type="text" placeholder="Nombre Usuario:">
+<input id="password" name="contrasenia" type="password" placeholder="Contraseña:">
 
 <input class="btn" type="submit" value="INICIAR SESION">
-<input class="btn" type="submit" value="CREAR UNA CUENTA">
-</form>`;
+<span id="registrarse" class="btn">CREAR UNA CUENTA</span>
+</form>
+`;
 
 const $HEADER = document.getElementById("HEADER");
 const $MAIN = document.getElementById("MAIN");
@@ -66,8 +68,3 @@ export const componente = {
     mainPrincipal,
   },
 };
-
-// COMPONENTES DEL HEADER
-$HEADER.innerHTML = headerPrincipal;
-// COMPONENTES DEL MAIN
-$MAIN.innerHTML = mainPrincipal;

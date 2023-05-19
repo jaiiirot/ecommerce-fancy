@@ -1,0 +1,26 @@
+[
+    {
+        "id": 0,
+        "nombre": "Jhon",
+        "email": "jt@gmail.com",
+        "contrasenia": "123123123"
+    },
+    {
+        "id": 1,
+        "nombre": "Maria",
+        "email": "maria@gmail.com",
+        "contrasenia": "abcabcabc"
+    },
+    {
+        "id": 2,
+        "nombre": "Carlos",
+        "email": "carlos@gmail.com",
+        "contrasenia": "xyzxyzxyz"
+    },
+    {
+        "id": 3,
+        "nombre": "Ana",
+        "email": "ana@gmail.com",
+        "contrasenia": "qwerty123"
+    }
+]

@@ -1,23 +1,53 @@
+import listaProductos from "./productos.json" assert { type: "json" };
+// import listaUsuarios from "./usuarios.json" assert { type: "json" };
 import { componente } from "./template.js";
-import { PRODUCTOS } from "./productos.js";
+
+const $HEADER = document.getElementById("HEADER");
+const $MAIN = document.getElementById("MAIN");
+// COMPONENTES DEL HEADER
+$HEADER.innerHTML = componente.header.headerPrincipal;
+// COMPONENTES DEL MAIN
+$MAIN.innerHTML = componente.main.mainPrincipal;
 
 // SELECCION DE PRODUCTOS
 export let productoCarrito = [];
 
+
 const ACTIVARELSELECCIONADOR = () => {
   $CARDS.childNodes.forEach((nodosCard) => {
+    // console.log(nodosCard)
     if (nodosCard.nodeName == "DIV") {
       const AGREGARCARRITO = (padre) => {
         const $AGREGARCARRITO = padre.querySelector(".pushCard");
+        // console.log($AGREGARCARRITO);
 
         $AGREGARCARRITO.addEventListener("click", (e) => {
+
+          let productoSeleccionado;
           productos.filter((elementoFiltrar) => {
             if (elementoFiltrar.id == e.target.id) {
-              productoCarrito.push(objetoElementos(elementoFiltrar));
+              productoSeleccionado = objetoElementos(elementoFiltrar);
+              productoSeleccionado.cantidad = 1
             }
           });
-          console.log(productoCarrito);
-          localStorage.setItem("CARRITO", JSON.stringify(productoCarrito));
+          const exits = productoCarrito.some(product => productoSeleccionado.id === product.id)
+          if(exits){
+            const products = productoCarrito.map(product => {
+              if(product.id == e.target.id){
+                product.cantidad++
+                return product
+              }else{
+                return product
+              }
+            })
+            productoCarrito = [...products]            
+          }else{
+            productoCarrito = [...productoCarrito, productoSeleccionado]            
+          }          
+          localStorage.setItem(
+            `CARRITO-${localStorage.getItem("usuario")}`,
+            JSON.stringify(productoCarrito)
+          );
         });
       };
       AGREGARCARRITO(nodosCard);
@@ -33,10 +63,8 @@ const ACTIVARELSELECCIONADOR = () => {
         $$MOSTRAR.setAttribute("class", "viewCard");
         $$MOSTRAR.innerHTML += `  
         <img class="viewCard__btn" id="CERRAR" src="https://img.icons8.com/fluency/48/null/close-window.png"/>
-        <div class="viewCard__ctn d-f-cc">
-        <div class="viewCard__ctnImag">
-        <img src="${productoSeleccionado.img}" />
-        </div>
+        <div class="viewCard__ctn">
+        <img class="viewCard__ctnImag" src="${productoSeleccionado.img}" />
         <div class="viewCard__ctnInfo d-f-cc">
         <h1>${productoSeleccionado.title}</h1>
         <h2>$ ${productoSeleccionado.precio}</h2>
@@ -106,8 +134,7 @@ const MOSTRARPRODUCTOS = (e) => {
               e.id
             }" class="btn pushCard" type="submit" value="Agregar Carrito">
         </div>
-    </div>
-    `;
+    </div>`;
   $CARDS.innerHTML += $productos;
 };
 
@@ -134,66 +161,24 @@ const AbrirCerrarCargar = (elemento, tiempo, top, display) => {
   }, tiempo);
 };
 
-// Formulario
-const obtenerFormulario = (e) => {
-  if (e.submitter.value == "INICIAR SESION") {
-    let usuario = {
-      nombre: e.target[0].value,
-      email: e.target[1].value,
-      password: e.target[2].value,
-    };
-    console.log(usuario);
-    localStorage.setItem("nombre.usuario", usuario.nombre);
-    localStorage.setItem("email.usuario", usuario.email);
-    localStorage.setItem("password.usuario", usuario.password);
-  }
-
-  if (e.submitter.value == "CREAR UNA CUENTA") {
-    $CTNFORMULARIOS.innerHTML = componente.formularioRegistro;
-  }
-
-  if (e.submitter.value == "CREAR CUENTA") {
-    let usuario = {
-      email: e.target[0].value,
-      Reemail: e.target[1].value,
-      password: e.target[2].value,
-      Repassword: e.target[3].value,
-    };
-    console.log(usuario);
-  }
-
-  if (e.submitter.value == "YA TENGO CUENTA") {
-    $CTNFORMULARIOS.innerHTML += componente.formularioLogin;
-  }
-};
-
 // ???????????????????????????????????????????????????????
+let productos = listaProductos;
 const $CARDS = document.getElementById("CARDS");
-let productos = PRODUCTOS;
 const $RELOAD = document.getElementById("LOADER");
 const $BOTONABRIR = document.getElementById("abrirLogReg");
-const $BOTONCERRAR = document.getElementById("cerrarLogReg");
-const $LOGREG = document.getElementById("LOGREG");
-const $CTNFORMULARIOS = $LOGREG.querySelector(".logReg");
-$CTNFORMULARIOS.innerHTML = componente.formularioLogin;
-const $FORMULARIO = $CTNFORMULARIOS.querySelector(".logReg__ctn");
 
 // PRELOADER
 window.addEventListener("load", () => {
   AbrirCerrarCargar($RELOAD, 2000, "-100vh", "none");
 });
-// CERRAR LOS FORMULARIOS
-$BOTONCERRAR.addEventListener("click", () => {
-  AbrirCerrarCargar($LOGREG, 800, "-100vh", "none");
-});
+// ABRIR LOS FORMULARIOS
+if (localStorage.getItem("usuario") === "") {
+  $BOTONABRIR.children[0].innerHTML = ``;
+} else {
+  $BOTONABRIR.children[0].innerHTML = localStorage.getItem("usuario");
+}
 $BOTONABRIR.addEventListener("click", () => {
-  AbrirCerrarCargar($LOGREG, 800, "0vh", "flex");
-});
-
-// CERRAR LOGIN Y REGISTER
-$FORMULARIO.addEventListener("submit", (e) => {
-  e.preventDefault();
-  obtenerFormulario(e);
+  window.location = "../index.html";
 });
 
 // CREAR A LOS PRODUCTOS

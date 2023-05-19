@@ -1,0 +1,164 @@
+[
+    {
+      "tipo": "r",
+      "id": 1,
+      "img": "https://http2.mlstatic.com/D_NQ_NP_676537-MLA53484768627_012023-W.webp",
+      "title": "Remera Algodón Primavera",
+      "info": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+      "talles": "s,l,m",
+      "precio": "20000",
+      "stock": "24"
+    },
+    {
+      "tipo": "r",
+      "id": 2,
+      "img": "https://http2.mlstatic.com/D_NQ_NP_746396-MLA53484794244_012023-W.webp",
+      "title": "Remera Estampada Verano",
+      "info": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+      "talles": "s,l,m",
+      "precio": "20000",
+      "stock": "24"
+    },
+    {
+      "tipo": "r",
+      "id": 3,
+      "img": "https://http2.mlstatic.com/D_NQ_NP_841354-MLA53484681781_012023-W.webp",
+      "title": "Remera Manga Larga Invierno",
+      "info": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+      "talles": "s,l,m",
+      "precio": "21000",
+      "stock": "24"
+    },
+    {
+      "tipo": "r",
+      "id": 4,
+      "img": "https://http2.mlstatic.com/D_NQ_NP_819998-MLA53484932526_012023-W.webp",
+      "title": "Remera Casual Otoño",
+      "info": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+      "talles": "s,l,m",
+      "precio": "20000",
+      "stock": "24"
+    },
+    {
+      "tipo": "r",
+      "id": 5,
+      "img": "https://http2.mlstatic.com/D_NQ_NP_735056-MLA53602545124_022023-W.webp",
+      "title": "Remera Deportiva Dry-Fit",
+      "info": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+      "talles": "s,l,m",
+      "precio": "20000",
+      "stock": "24"
+    },
+    {
+      "tipo": "r",
+      "id": 6,
+      "img": "https://http2.mlstatic.com/D_NQ_NP_781692-MLA53602492527_022023-W.webp",
+      "title": "Remera Playera Verano",
+      "info": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+      "talles": "s,l,m",
+      "precio": "20000",
+      "stock": "24"
+    },
+    {
+      "tipo": "r",
+      "id": 7,
+      "img": "https://http2.mlstatic.com/D_NQ_NP_930965-MLA53702028998_022023-W.webp",
+      "title": "Remera Elegante Fiesta",
+      "info": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+      "talles": "s,l,m",
+      "precio": "14000",
+      "stock": "24"
+    },
+    {
+        "tipo": "p",
+        "id": 8,
+        "img": "https://http2.mlstatic.com/D_NQ_NP_693404-MLA54823291836_042023-W.webp",
+        "title": "Pantalón Casual",
+        "info": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+        "talles": "40,42,44",
+        "precio": "4000",
+        "stock": "24"
+      },
+      {
+        "tipo": "p",
+        "id": 9,
+        "img": "https://http2.mlstatic.com/D_NQ_NP_693404-MLA54823291836_042023-W.webp",
+        "title": "Pantalón Cargo",
+        "info": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+        "talles": "40,42,44",
+        "precio": "4000",
+        "stock": "24"
+      },
+      {
+        "tipo": "p",
+        "id": 10,
+        "img": "https://http2.mlstatic.com/D_NQ_NP_693404-MLA54823291836_042023-W.webp",
+        "title": "Pantalón Deportivo",
+        "info": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+        "talles": "40,42,44",
+        "precio": "4000",
+        "stock": "24"
+      },
+      {
+        "tipo": "r",
+        "id": 11,
+        "img": "https://http2.mlstatic.com/D_NQ_NP_893354-MLA54923751147_032023-W.webp",
+        "title": "Remera de Algodón",
+        "info": "Remera de algodón suave y cómoda, ideal para el uso diario.",
+        "talles": "s,m,l,xl",
+        "precio": "2500",
+        "stock": "30"
+      },
+      {
+        "tipo": "r",
+        "id": 12,
+        "img": "https://http2.mlstatic.com/D_NQ_NP_621101-MLA54971154158_042023-W.webp",
+        "title": "Remera Estampada",
+        "info": "Remera estampada con diseño llamativo y colorido, perfecta para ocasiones informales.",
+        "talles": "s,m,l,xl",
+        "precio": "3000",
+        "stock": "25"
+      },
+      {
+        "tipo": "r",
+        "id": 13,
+        "img": "https://http2.mlstatic.com/D_NQ_NP_975819-MLA54301614431_022021-W.webp",
+        "title": "Remera Manga Larga",
+        "info": "Remera de manga larga para los días más frescos, confeccionada en algodón de alta calidad.",
+        "talles": "s,m,l,xl",
+        "precio": "3500",
+        "stock": "20"
+      },
+      {
+        "tipo": "r",
+        "id": 14,
+        "img": "https://http2.mlstatic.com/D_NQ_NP_733585-MLA54829657498_022023-W.webp",
+        "title": "Remera Deportiva",
+        "info": "Remera deportiva de alta calidad, diseñada para br",
+        "talles": "s,m,l,xl",
+        "precio": "4500",
+        "stock": "15"
+        },
+        {
+        "tipo": "z",
+        "id": 15,
+        "img": "https://http2.mlstatic.com/D_NQ_NP_997124-MLA44937183528_022021-O.webp",
+        "title": "Zapatillas Deportivas",
+        "info": "Zapatillas deportivas de alta calidad y confort, ideales para entrenamientos de alta intensidad.",
+        "talles": "37,38,39,40,41,42,43,44,45",
+        "precio": "9000",
+        "stock": "10"
+        },
+        {
+        "tipo": "z",
+        "id": 16,
+        "img": "https://http2.mlstatic.com/D_NQ_NP_698855-MLA69325619441_052023-O.webp",
+        "title": "Zapatillas Urbanas",
+        "info": "Zapatillas urbanas de diseño moderno y descontracturado, perfectas para el día a día.",
+        "talles": "37,38,39,40,41,42,43,44,45",
+        "precio": "7000",
+        "stock": "20"
+        }
+        ]
+    
+  
