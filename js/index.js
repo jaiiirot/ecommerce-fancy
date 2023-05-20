@@ -38,7 +38,7 @@ const validarUsuario = () => {
         e.contrasenia == datosIngresados.contrasenia
       ) {
         localStorage.setItem('usuario',e.nombre)
-        window.location = "../template/index.html";
+        window.location = "StoreEsthetic/template/index.html";
       }else{
         carga(formulario, "#8f002b", "Datos incorrectos");
       }
@@ -85,5 +85,5 @@ const crearUsuario = () => {
 validarUsuario();  
 $cerrarFormularios.addEventListener('click',()=>{
   localStorage.setItem('usuario',"")
-  window.location = "../template/index.html";
+  window.location = "StoreEsthetic/template/index.html";
 })
