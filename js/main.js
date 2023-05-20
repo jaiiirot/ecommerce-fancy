@@ -1,16 +1,26 @@
 import { componente } from "./template.js";
 
+const clima = async () =>{
+  try {
+    const resp = await fetch('https://api.openweathermap.org/data/2.5/weather?q=Buenos%20Aires,ar&appid=cd61172287436afb4166548edecb4dc3&units=metric')
+    const datos = await resp.json();
+    const datosWathermap = `En ${datos.name}, Hay una temperatura de: ${datos.main.temp}° y el clima esta ${datos.weather[0].description}`;
+    document.getElementById('avisarClima').innerHTML = datosWathermap;
+  } catch (error) {
+    console.log("volver a intentar") 
+  }
+}
+
 const $ABRIRCARRITO = document.querySelector("#AbrirCarrito");
 const $MAIN = componente.main.$MAIN;
 
 
-const ABRIRCARRITO = () => {
+const ABRIRCARRITO = async () => {
   $ABRIRCARRITO.addEventListener("click", () => {
     let carritoLocal = JSON.parse(
       localStorage.getItem(`CARRITO-${localStorage.getItem("usuario")}`)
     );
     let total = 0;
-    let cantidadproductos = 0;
 
     const $$MOSTRAR = document.createElement("div");
     $$MOSTRAR.setAttribute("class", "viewCard");
@@ -53,6 +63,8 @@ const ABRIRCARRITO = () => {
         <p>$${total}</p>
         <span class="btn" id="vaciarCarrito">Vaciar Carrito</span>
         <span class="btn" id="comprarCarrito">Comprar Carrito</span>
+        <br>
+        <p id="avisarClima">${clima()}</p>
         </div>
       </div>`);
 
