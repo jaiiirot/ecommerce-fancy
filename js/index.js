@@ -16,8 +16,6 @@ class Usuario {
 ============================================================*/
 const $formulario = document.getElementById("formularios");
 const $cerrarFormularios = document.querySelector(".formularios__cerrar");
-// console.log(todosProductos);
-console.log(todosUsuarios);
 
 const carga = (formulario, color) => {
   formulario.style.backgroundColor = color;
@@ -40,7 +38,7 @@ const validarUsuario = () => {
         e.contrasenia == datosIngresados.contrasenia
       ) {
         localStorage.setItem('usuario',e.nombre)
-        window.location = '../template/aesthetic.html';
+        window.location = '../template/esthetic.html';
       }else{
         carga(formulario, "#8f002b", "Datos incorrectos");
       }
@@ -80,7 +78,6 @@ const crearUsuario = () => {
   const $iniciar = document.getElementById("iniciarSession");
   $iniciar.addEventListener("click", () => {
     $formulario.innerHTML = '';
-    console.log('a')
     $formulario.innerHTML = componente.formularioLogin;
     validarUsuario();
   });
@@ -88,5 +85,5 @@ const crearUsuario = () => {
 validarUsuario();  
 $cerrarFormularios.addEventListener('click',()=>{
   localStorage.setItem('usuario',"")
-  window.location = '../template/aesthetic.html';
+  window.location = '../template/esthetic.html';
 })

@@ -24,7 +24,6 @@ const ABRIRCARRITO = async () => {
 
     const $$MOSTRAR = document.createElement("div");
     $$MOSTRAR.setAttribute("class", "viewCard");
-    console.log(carritoLocal);
     carritoLocal === null
       ? ($$MOSTRAR.innerHTML = `  
       <img class="viewCard__btn" id="CERRAR" src="https://img.icons8.com/fluency/48/null/close-window.png"/>
@@ -74,9 +73,7 @@ const ABRIRCARRITO = async () => {
     const $ELIMINARPRODUCTO = $$MOSTRAR.querySelectorAll(".productoEliminar");
     $ELIMINARPRODUCTO.forEach((ele) => {
       ele.addEventListener("click", (element) => {
-        console.log(element.target.id);
         carritoLocal = carritoLocal.filter(e => element.target.id != e.id);
-        console.log(carritoLocal)
         localStorage.setItem(
           `CARRITO-${localStorage.getItem("usuario")}`,
           JSON.stringify(carritoLocal)
