@@ -1,0 +1,7 @@
+[
+  { "id": "PRODUCTOS", "name": "Productos" },
+  { "id": "REMERAS", "name": "Remera" },
+  { "id": "PANTALONES", "name": "Pantalones" },
+  { "id": "ZAPATILLAS", "name": "Zapatillas" },
+  { "id": "Buzos", "name": "Buzos" }
+]

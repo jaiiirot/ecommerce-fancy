@@ -9,10 +9,11 @@
 .ctnCard {
   position: relative;
   width: inherit;
-  background: var(--color-blanco);
+  background: #fff;
   padding: 0px 20px 15px;
   border-radius: 20px;
   transition: 100ms all ease-in-out;
+  text-align: center;
   &__view {
     position: absolute;
     width: 100%;
@@ -42,23 +43,12 @@
   }
   &__btns {
     position: relative;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    .btn {
-      z-index: 1;
-      color: #081319;
-      background: none;
-      outline: 1px solid #081319;
-      &:hover {
-        color: #fff;
-        background: #081319;
-      }
-    }
+    z-index: 1;
+    font-size: 1rem;
   }
-
   &:hover {
     cursor: pointer;
-    box-shadow: 2px 2px 10px #7c7c7c;
+    box-shadow: 2px 2px 5px #7c7c7c;
     transform: scale(1.01);
   }
 }
@@ -66,6 +56,7 @@
 // VIEW
 
 .viewCard {
+  position: relative;
   border-radius: 25px;
   width: 100%;
   height: 100%;
@@ -78,9 +69,10 @@
     position: absolute;
     right: 0;
     top: 0;
-    &:hover {
-      transform: scale(0.8);
-    }
+    font-size: 3rem;
+    background: #ff0000;
+    color: #ffffff;
+    border-radius: 50%;
   }
   &__ctn {
     display: grid;

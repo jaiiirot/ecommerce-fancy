@@ -1,38 +1,34 @@
 /* =========================== MENU ==========================================*/
 
-.header {
+.headerNav {
   width: 15%;
   height: 80vh;
   position: fixed;
   top: 0;
   bottom: 0;
   margin: auto;
-  & * {
-    color: #ffffff;
-  }
 
-  &__ctn {
+  &__container {
     height: inherit;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
 
-    &List {
+    &Options {
       width: 100%;
       list-style: none;
       padding: 0;
       li {
         transition: 100ms all ease-in;
-        margin: 10% 0px;
         text-align: center;
         a {
+          color: #ffffff;
           display: block;
           width: 100%;
           font-size: 1.3rem;
           text-decoration: none;
         }
-
         hr {
           width: 50%;
           height: 4px;
@@ -43,7 +39,7 @@
           cursor: pointer;
           a + hr {
             width: 100%;
-            background: #ffffff;
+            background: #ff21b2;
           }
         }
       }
@@ -51,49 +47,42 @@
   }
 }
 
-// ngt (navegation)
-
-.ngt {
-  position: fixed;
-  height: 10vh;
+.header {
+  position: absolute;
   top: 0;
+  height: 10vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
   width: 100%;
-  justify-content: center;
-  &__ctnLogo {
-    text-decoration: none;
-    font-family: "Rock Salt", cursive;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    height: 100px;
-    color: #fff;
-    &:hover img {
-      transform: rotate(360deg);
+
+  &__search {
+    border: 1px solid #000;
+    background: #fff;
+    width: 100%;
+    height: 50%;
+    padding: 4px 8px;
+    border-radius: 5rem;
+    input {
+      width: 100%;
+      height: 100%;
+      font-size: 1rem;
+      padding: 0px 5px;
+      border: none;
+      outline: none;
     }
-    img {
-      transition: all 1s;
-      height: 40px;
+    button {
+      padding: 0;
+      border: none;
+      background: none;
+      color: #000;
     }
   }
 
-  form {
-    justify-content: space-around;
-    width: 100%;
-    height: 10vh;
-    ul {
-      li {
-        cursor: pointer;
-        height: 25px;
-        input {
-          width: 400px;
-          padding: 6px 15px;
-        }
-      }
+  &__option {
+    gap: 1rem;
+    li {
+      color: #fff;
     }
-  }
-  // .ngt__ctnBuscar{}
-  &__ctnPerson {
-    list-style-type: none;
-    gap: 10px;
   }
 }

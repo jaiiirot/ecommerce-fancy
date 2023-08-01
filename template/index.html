@@ -5,58 +5,67 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Esthetic</title>
-  <link rel="shortcut icon" href="../images/thunder-bolt.png" type="image/x-icon" />
-  <link rel="stylesheet" href="../css/main.css" />
-
+  <title>Fancy</title>
+  <link rel="shortcut icon" href="../images/ico.png" type="image/x-icon" />
+  <link rel="stylesheet" href="../style/main.css" />
   <!-- Script Templates -->
   <script src="../js/template.js" type="module"></script>
   <!-- script de font awesome -->
   <script src="https://kit.fontawesome.com/de8fe1cee1.js" crossorigin="anonymous"></script>
+  <!-- Font Family Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Poppins:wght@100;200;300;400;500;600&display=swap"
+    rel="stylesheet">
 </head>
+
 
 <body>
   <!-- RELOAD -->
-  <span id="LOADER" class="LOAD d-f-cc">
+  <span id="LOADER" class="LOAD flex-center-center">
     <img src="../images/preloader.gif" alt="" style="width: 10%" />
   </span>
 
-  <header id="HEADER" class="header">
+  <!-- <header id="HEADER" class="header"> -->
+  <header id="HEADER" class="headerNav">
     <!-- aca esta el header -->
   </header>
 
-  <div class="ngt d-f-cc">
-    <form class="d-f-cc" action="">
-      <a href="./aesthetic.html" class="ngt__ctnLogo"><img src="../images/thunder-bolt.png" alt="" srcset="" />AesTheTic</a>
-      <ul class="ngt__ctnBuscar">
-        <li>
-          <input id="BUSCADOR" type="text" placeholder="Buscar" />
-          <label for=""><i class="fa-solid fa-magnifying-glass" style="color: #ffffff"></i></label>
-        </li>
-      </ul>
-      <ul class="ngt__ctnPerson d-f-cc">
-        <li id="AbrirCarrito">
-          <img src="https://img.icons8.com/color/24/null/shopping-cart--v1.png" />
-        </li>
-        <li id="abrirLogReg">
-          <i class="fa-solid fa-user-plus" style="color: #ffffff"></i>
-        </li>
-      </ul>
+  <div class="header">
+    <div class="header__logo logo">
+      <a class="logo__link flex-center-center" href="./index.html">
+        <img src="../images/logo.png" alt="" srcset="" />
+      </a>
+    </div>
+    <form class="header__search flex-center-center">
+      <input id="BUSCADOR" type="text" placeholder="Buscar" />
+      <button type="submit" for="">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
     </form>
+    <ul class="header__option flex-center-center">
+      <li class="btn btn-none" id="AbrirCarrito">
+        <i class="fa-solid fa-cart-shopping"></i>
+      </li>
+      <li class="btn btn-none" id="abrirLogReg">
+        <i class="fa-solid fa-user-plus"></i>
+      </li>
+    </ul>
   </div>
 
   <main id="MAIN">
     <!-- section 1 index : lista de productos -->
   </main>
 
-  <footer class="footer d-f-cc">
+  <footer class="footer flex-center-center">
     <div class="footer__copy">
       <a href="https://github.com/Jairo-Tumiri/StoreEsthetic-1Entreda">© 2023 Aesthetic - Argentina by Jairo Tumiri</a>
     </div>
   </footer>
 
-  <script src="../js/eventos.js" type="module"></script>
-  <script src="../js/main.js" type="module"></script>
+  <script src="../js/Product.js" type="module"></script>
+  <script src="../js/Card.js" type="module"></script>
 </body>
 
 </html>

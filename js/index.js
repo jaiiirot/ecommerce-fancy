@@ -1,15 +1,7 @@
-import { componente } from "./template.js";
-import listaUsuarios from "./usuarios.json" assert { type: "json" };
+import listaUsuarios from "./data/usuarios.json" assert { type: "json" };
 
-let todosUsuarios = JSON.parse(localStorage.getItem('USUARIOS'))||listaUsuarios
-class Usuario {
-  constructor(id, nombre, email, contrasenia) {
-    this.id = id;
-    this.nombre = nombre;
-    this.email = email;
-    this.contrasenia = contrasenia;
-  }
-}
+let todosUsuarios =
+  JSON.parse(localStorage.getItem("USUARIOS")) || listaUsuarios;
 
 /*============================================================
                         FUNCIONES
@@ -37,15 +29,15 @@ const validarUsuario = () => {
         e.nombre == datosIngresados.nombre &&
         e.contrasenia == datosIngresados.contrasenia
       ) {
-        localStorage.setItem('usuario',e.nombre)
+        localStorage.setItem("usuario", e.nombre);
         window.location = "../template/index.html";
-      }else{
+      } else {
         carga(formulario, "#8f002b", "Datos incorrectos");
       }
     });
   });
   registrarse.addEventListener("click", () => {
-    $formulario.innerHTML = '';   
+    $formulario.innerHTML = "";
     $formulario.innerHTML = componente.formularioRegistro;
     crearUsuario();
   });
@@ -77,13 +69,13 @@ const crearUsuario = () => {
   });
   const $iniciar = document.getElementById("iniciarSession");
   $iniciar.addEventListener("click", () => {
-    $formulario.innerHTML = '';
+    $formulario.innerHTML = "";
     $formulario.innerHTML = componente.formularioLogin;
     validarUsuario();
   });
 };
-validarUsuario();  
-$cerrarFormularios.addEventListener('click',()=>{
-  localStorage.setItem('usuario',"")
+validarUsuario();
+$cerrarFormularios.addEventListener("click", () => {
+  localStorage.setItem("usuario", "");
   window.location = "../template/index.html";
-})
+});
