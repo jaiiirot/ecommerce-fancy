@@ -5,7 +5,7 @@ import {
   MostrarProductos,
   HeaderPrincipal,
   MainPrincipal,
-} from "./template.js";
+} from "./template/template.js";
 
 const HEADER = document.getElementById("HEADER");
 const MAIN = document.getElementById("MAIN");

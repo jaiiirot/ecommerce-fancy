@@ -1,4 +1,4 @@
-import { $MAIN, Carrito } from "./template.js";
+import { $MAIN, Carrito } from "./template/template.js";
 
 /* const clima = async () =>{
   try {

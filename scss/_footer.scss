@@ -1,15 +1,14 @@
 /* ============================ PIE DE PAGINA ==================*/
 
-.footer{
-    position:fixed;
-    height: 10vh;
-    bottom: 0;
-    width: 100%;
-    justify-content: center;
-
-    & *{
-        color: #fff;
-        list-style-type: none;
-        text-decoration: none;
-    }
+.footer {
+  grid-area: footer;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  & * {
+    color: #fff;
+    list-style-type: none;
+    text-decoration: none;
+  }
 }

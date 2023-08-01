@@ -1,14 +1,25 @@
 /* ================================== CUERPO ===========================================*/
 .sec1Ix {
+  &__title {
+    height: 100%;
+  }
 
-    &__title {
-        height: 100%;
-    }
-
-    &__ctnCards{
-        position: relative;
-        display: grid;
-        grid-template-columns: repeat(4,1fr);
-        gap: 10px;
-    }
+  &__ctnCards {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 10px;
+  }
 }
+
+/* @media screen and (max-width: 1024px) {
+  .
+}
+
+@media screen and (max-width: 768px) {
+
+}
+
+@media screen and (max-width: 640px) {
+
+} */

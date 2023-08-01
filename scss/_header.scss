@@ -1,13 +1,9 @@
 /* =========================== MENU ==========================================*/
 
 .headerNav {
-  width: 15%;
-  height: 80vh;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-
+  grid-area: nav;
+  height: 100%;
+  width: 100%;
   &__container {
     height: inherit;
     display: flex;
@@ -48,14 +44,15 @@
 }
 
 .header {
-  position: absolute;
-  top: 0;
-  height: 10vh;
+  grid-area: header;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
   width: 100%;
-
+  height: 100%;
+  &__logo {
+    height: 6vh;
+  }
   &__search {
     border: 1px solid #000;
     background: #fff;
@@ -83,6 +80,44 @@
     gap: 1rem;
     li {
       color: #fff;
+    }
+    .btn-response {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .headerNav {
+    &__container {
+      &Options {
+        display: none;
+        li {
+          transition: 100ms all ease-in;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .header {
+    grid-template-areas: "ico null option";
+    &__logo {
+      grid-area: ico;
+    }
+    &__search {
+      display: none;
+    }
+    &__option {
+      grid-area: option;
+      .btn-response {
+        display: block;
+        background: #fff;
+        color: #000;
+        width: 50px;
+        border-radius: 1rem;
+        text-align: center;
+      }
     }
   }
 }

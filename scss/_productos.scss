@@ -59,7 +59,8 @@
   position: relative;
   border-radius: 25px;
   width: 100%;
-  height: 100%;
+  height: max-content;
+  margin: auto;
   background: #081319;
   * {
     color: #fff;
@@ -76,13 +77,12 @@
   }
   &__ctn {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto 1fr;
     height: 100%;
     overflow: hidden;
-    // justify-content: space-around;
+    place-items: center;
     div {
       width: 100%;
-      // overflow: hidden;
       flex-direction: column;
       align-items: start;
       padding: 1rem;
@@ -96,7 +96,7 @@
       }
     }
     &Imag {
-      height: 100%;
+      width: 100%;
       img {
         height: 100%;
         border-radius: 50px;
@@ -115,6 +115,41 @@
         width: 100%;
         align-items: center;
         flex-direction: row;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .viewCard {
+    &__ctn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      &Info {
+        margin: auto;
+        width: 50%;
+        align-items: center;
+        h1 {
+          font-size: 1rem;
+        }
+        h2,
+        h3,
+        h4 {
+          font-size: 0.8rem;
+        }
+        select {
+          option {
+            color: #081319;
+          }
+        }
+      }
+      &Imag {
+        width: 100%;
+        img {
+          width: 100%;
+        }
       }
     }
   }

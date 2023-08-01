@@ -13,21 +13,41 @@ $font-title: "Poppins", sans-serif;
 body {
   background: #081319;
   position: relative;
+  display: grid;
+  grid-template-columns: 15vw 85vw;
+  grid-template-rows: 10vh 80vh 10vh;
+  grid-template-areas:
+    "header header"
+    "nav body"
+    "footer footer";
 }
 
 main {
+  grid-area: body;
   background: #f0eaea;
   border-radius: 30px;
-  padding: 20px;
-  position: fixed;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  width: 85%;
-  height: 80vh;
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   overflow-y: scroll;
+}
+
+@media screen and (max-width: 1024px) {
+  body {
+    grid-template-columns: 20vw 80vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    grid-template-columns: 100vw;
+    grid-template-rows: 10vh max-content 10vh;
+    grid-template-areas:
+      "header header"
+      "body body"
+      "footer footer";
+  }
 }
 
 @import "./template";
