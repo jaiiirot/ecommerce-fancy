@@ -1,3 +1,4 @@
+import listaProductos from "./data/productos.json" assert { type: "json" };
 import { $MAIN, Carrito } from "./template/template.js";
 
 /* const clima = async () =>{
@@ -11,45 +12,68 @@ import { $MAIN, Carrito } from "./template/template.js";
   }
 } */
 
-const $ABRIRCARRITO = document.querySelector("#AbrirCarrito");
-$MAIN;
-
-const ABRIRCARRITO = async () => {
-  $ABRIRCARRITO.addEventListener("click", () => {
-    let carritoLocal = JSON.parse(
-      localStorage.getItem(`CARRITO-${localStorage.getItem("usuario")}`)
-    );
-
-    const { EliminarProducto, $$MOSTRAR } = Carrito(carritoLocal);
-    const $ELIMINARPRODUCTO = EliminarProducto;
-
-    $ELIMINARPRODUCTO.forEach((ele) => {
-      ele.addEventListener("click", (element) => {
-        carritoLocal = carritoLocal.filter((e) => element.target.id != e.id);
-        localStorage.setItem(
-          `CARRITO-${localStorage.getItem("usuario")}`,
-          JSON.stringify(carritoLocal)
-        );
-        $MAIN.removeChild($$MOSTRAR);
-        $MAIN.childNodes[1].style.display = "block";
-      });
+function AGREGARCARRITO(itemId) {
+  let productosCarrito = [];
+  let existLocal = JSON.parse(localStorage.getItem("CARRITO"));
+  if (existLocal === null) {
+    localStorage.setItem("CARRITO", JSON.stringify([]));
+    productosCarrito = JSON.parse(localStorage.getItem("CARRITO"));
+  } else {
+    productosCarrito = JSON.parse(localStorage.getItem("CARRITO"));
+  }
+  const exist = productosCarrito.some((e) => e.id === itemId);
+  const ProdCard = listaProductos.filter((e) => e.id === itemId);
+  let newCard;
+  if (!exist) {
+    const [newProdCard] = ProdCard;
+    newProdCard.quantity = 1;
+    newCard = [...productosCarrito, newProdCard];
+  } else {
+    newCard = productosCarrito.map((e) => {
+      if (e.id === itemId) {
+        e.quantity++;
+        return e;
+      }
+      return e;
     });
-    const $VACIARCARRITO = $$MOSTRAR.querySelector("#vaciarCarrito");
-    $VACIARCARRITO.addEventListener("click", () => {
-      carritoLocal = null;
-      localStorage.setItem(
-        `CARRITO-${localStorage.getItem("usuario")}`,
-        carritoLocal
-      );
-      $MAIN.removeChild($$MOSTRAR);
-      $MAIN.childNodes[1].style.display = "block";
-    });
-    const $$CERRAR = document.getElementById("CERRAR");
-    $$CERRAR.addEventListener("click", () => {
-      $MAIN.removeChild($$MOSTRAR);
-      $MAIN.childNodes[1].style.display = "block";
+  }
+  localStorage.setItem("CARRITO", JSON.stringify(newCard));
+}
+
+function ABRIRCARRITO() {
+  const btnCarrito = document.getElementById("AbrirCarrito");
+  btnCarrito.addEventListener("click", () => {
+    let carritoLocal = JSON.parse(localStorage.getItem("CARRITO")) || [];
+    Carrito(carritoLocal);
+    deleteItemCard(carritoLocal);
+    CerrarAbrirCard();
+  });
+}
+
+function deleteItemCard(carritoLocal = []) {
+  const containerItems = document.querySelectorAll(
+    ".carrito__containerProdsItem"
+  );
+  containerItems.forEach((child) => {
+    const deleteItem = child.querySelector(".eliminarProdCarrito");
+    deleteItem.addEventListener("click", (e) => {
+      const newCard = carritoLocal.filter((items) => items.id != e.target.id);
+      console.log(newCard, e.target.id);
+      localStorage.setItem("CARRITO", JSON.stringify(newCard));
     });
   });
-};
+}
 
+function CerrarAbrirCard() {
+  const containerCard = document.querySelector(".carrito");
+  const closeCard = document.getElementById("closeCard");
+  const listProd = document.getElementById("listProd");
+  listProd.style.display = "none";
+  closeCard.addEventListener("click", () => {
+    $MAIN.removeChild(containerCard);
+    listProd.style.display = "block";
+  });
+}
+
+export { AGREGARCARRITO };
 ABRIRCARRITO();

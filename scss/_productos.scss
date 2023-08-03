@@ -58,12 +58,11 @@
 .viewCard {
   position: relative;
   border-radius: 25px;
-  width: 100%;
+  width: 80%;
   height: max-content;
   margin: auto;
-  background: #081319;
   * {
-    color: #fff;
+    color: #000000;
   }
   &__btn {
     cursor: pointer;
@@ -78,17 +77,18 @@
   &__ctn {
     display: grid;
     grid-template-columns: auto 1fr;
-    height: 100%;
+    height: initial;
     overflow: hidden;
     place-items: center;
     div {
-      width: 100%;
       flex-direction: column;
       align-items: start;
       padding: 1rem;
       gap: 15px;
     }
     &Info {
+      width: 80%;
+      height: max-content;
       select {
         option {
           color: #081319;
@@ -96,7 +96,7 @@
       }
     }
     &Imag {
-      width: 100%;
+      width: inherit;
       img {
         height: 100%;
         border-radius: 50px;
@@ -119,24 +119,53 @@
     }
   }
 }
+@media screen and (max-width: 960px) {
+  .viewCard {
+    height: 100%;
+    &__ctn {
+      height: min-content;
+      &Info {
+        width: min-content;
+        align-items: center;
+        h1 {
+          font-size: 1.2rem;
+        }
+        h2,
+        h3,
+        h4,
+        p {
+          font-size: 1rem;
+        }
+        select {
+          option {
+            color: #081319;
+          }
+        }
+      }
+      &Imag {
+        width: 100%;
+      }
+    }
+  }
+}
 
 @media screen and (max-width: 640px) {
   .viewCard {
+    height: max-content;
     &__ctn {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      flex-direction: column-reverse;
       &Info {
-        margin: auto;
-        width: 50%;
+        align-items: end;
+        width: 100%;
         align-items: center;
         h1 {
           font-size: 1rem;
         }
         h2,
         h3,
-        h4 {
+        h4,
+        p {
           font-size: 0.8rem;
         }
         select {

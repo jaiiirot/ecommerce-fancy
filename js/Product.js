@@ -1,10 +1,12 @@
 import listaProductos from "./data/productos.json" assert { type: "json" };
 import navegation from "./data/navegation.json" assert { type: "json" };
+import { AGREGARCARRITO } from "./Card.js";
 import {
   ProductDetail,
   MostrarProductos,
   HeaderPrincipal,
   MainPrincipal,
+  $MAIN,
 } from "./template/template.js";
 
 const HEADER = document.getElementById("HEADER");
@@ -14,59 +16,41 @@ HEADER.innerHTML = HeaderPrincipal(navegation);
 // COMPONENTES DEL MAIN
 MAIN.innerHTML = MainPrincipal();
 // SELECCION DE PRODUCTOS
-export let productoCarrito = [];
 
 const ACTIVARELSELECCIONADOR = () => {
-  $CARDS.childNodes.forEach((nodosCard) => {
-    if (nodosCard.nodeName == "DIV") {
-      const AGREGARCARRITO = (padre) => {
-        const $AGREGARCARRITO = padre.querySelector(".pushCard");
+  const listDetail = document.querySelectorAll(".ctnCard");
+  listDetail.forEach((child) => {
+    const agregar = child.querySelector(".pushCard");
+    const itemDetail = child.querySelector(".ctnCard__view");
+    agregar.addEventListener("click", (e) => {
+      AGREGARCARRITO(parseInt(e.target.id));
+    });
 
-        $AGREGARCARRITO.addEventListener("click", (e) => {
-          let productoSeleccionado;
-          productos.filter((elementoFiltrar) => {
-            if (elementoFiltrar.id == e.target.id) {
-              productoSeleccionado = objetoElementos(elementoFiltrar);
-              productoSeleccionado.cantidad = 1;
-            }
-          });
-          const exits = productoCarrito.some(
-            (product) => productoSeleccionado.id === product.id
-          );
-          if (exits) {
-            const products = productoCarrito.map((product) => {
-              if (product.id == e.target.id) {
-                product.cantidad++;
-                return product;
-              } else {
-                return product;
-              }
-            });
-            productoCarrito = [...products];
-          } else {
-            productoCarrito = [...productoCarrito, productoSeleccionado];
-          }
-          localStorage.setItem(
-            `CARRITO-${localStorage.getItem("usuario")}`,
-            JSON.stringify(productoCarrito)
-          );
-        });
-      };
-      AGREGARCARRITO(nodosCard);
-
-      nodosCard.childNodes[1].addEventListener("click", (nodoHijoCard) => {
-        let productoSeleccionado;
-        productos.filter((elementoFiltrar) => {
-          if (elementoFiltrar.id == nodoHijoCard.target.id) {
-            productoSeleccionado = objetoElementos(elementoFiltrar);
-          }
-        });
-
-        ProductDetail(productoSeleccionado, AGREGARCARRITO);
-      });
-    }
+    itemDetail.addEventListener("click", (e) => {
+      ProductDetail(e.target.id);
+      ACTIVARPRODDETAIL();
+    });
   });
 };
+
+const ACTIVARPRODDETAIL = () => {
+  const addDetail = document.querySelector(".pushCardDetail");
+  CerrarAbrirDetail();
+  addDetail.addEventListener("click", (e) => {
+    AGREGARCARRITO(parseInt(e.target.id));
+  });
+};
+
+function CerrarAbrirDetail() {
+  const containerDetail = document.querySelector(".viewCard");
+  const listProd = document.getElementById("listProd");
+  const closeDetail = document.getElementById("closeProdDetail");
+  listProd.style.display = "none";
+  closeDetail.addEventListener("click", () => {
+    $MAIN.removeChild(containerDetail);
+    listProd.style.display = "block";
+  });
+}
 
 // CARGAR PRODUCTOS
 const CARGARPRODUCTOS = (filtro) => {
@@ -76,20 +60,6 @@ const CARGARPRODUCTOS = (filtro) => {
     if (filtro == "") $CARDS.innerHTML += MostrarProductos(e);
   });
   ACTIVARELSELECCIONADOR();
-};
-
-const objetoElementos = (nodoElemento) => {
-  let productoSeleccionado = {
-    tipo: nodoElemento.tipo,
-    id: nodoElemento.id,
-    img: nodoElemento.img,
-    title: nodoElemento.title,
-    info: nodoElemento.info,
-    talles: nodoElemento.talles,
-    precio: nodoElemento.precio,
-    stock: nodoElemento.stock,
-  };
-  return productoSeleccionado;
 };
 
 const AbrirCerrarCargar = (elemento, tiempo, top, display) => {
@@ -104,13 +74,14 @@ const AbrirCerrarCargar = (elemento, tiempo, top, display) => {
 // ???????????????????????????????????????????????????????
 let productos = listaProductos;
 const $CARDS = document.getElementById("CARDS");
-const $RELOAD = document.getElementById("LOADER");
+// const $RELOAD = document.getElementById("LOADER");
 const $BOTONABRIR = document.getElementById("abrirLogReg");
 
-// PRELOADER
-window.addEventListener("load", () => {
-  AbrirCerrarCargar($RELOAD, 5000, "-100vh", "none");
-});
+// // PRELOADER
+// window.addEventListener("load", () => {
+//   AbrirCerrarCargar($RELOAD, 5000, "-100vh", "none");
+// });
+
 // ABRIR LOS FORMULARIOS
 if (localStorage.getItem("usuario") === "") {
   $BOTONABRIR.children[0].innerHTML = ``;
@@ -121,7 +92,7 @@ $BOTONABRIR.addEventListener("click", () => {
   window.location = "../index.html";
 });
 
-// CREAR A LOS PRODUCTOS
+// MOSTRAR A LOS PRODUCTOS
 if ($CARDS.innerText === "" || nombreUsuario === "") {
   productos.forEach((e) => {
     $CARDS.innerHTML += MostrarProductos(e);

@@ -22,9 +22,15 @@
   padding: 0px;
   border: none;
 }
-/* 
+
 * .btn-content {
-} */
+  transition: all 200ms ease-in-out;
+  width: min-content;
+  &:hover {
+    background: #0e0d0d;
+    color: #fff;
+  }
+}
 
 * .logo {
   height: 4rem;
