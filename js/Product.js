@@ -9,95 +9,17 @@ import {
   $MAIN,
 } from "./template/template.js";
 
-const HEADER = document.getElementById("HEADER");
-const MAIN = document.getElementById("MAIN");
-// COMPONENTES DEL HEADER
+const productos = listaProductos;
+// COMPONENTES DEL HEADER y MAIN (activado)
 HEADER.innerHTML = HeaderPrincipal(navegation);
-// COMPONENTES DEL MAIN
 MAIN.innerHTML = MainPrincipal();
-// SELECCION DE PRODUCTOS
-
-const ACTIVARELSELECCIONADOR = () => {
-  const listDetail = document.querySelectorAll(".ctnCard");
-  listDetail.forEach((child) => {
-    const agregar = child.querySelector(".pushCard");
-    const itemDetail = child.querySelector(".ctnCard__view");
-    agregar.addEventListener("click", (e) => {
-      AGREGARCARRITO(parseInt(e.target.id));
-    });
-
-    itemDetail.addEventListener("click", (e) => {
-      ProductDetail(e.target.id);
-      ACTIVARPRODDETAIL();
-    });
-  });
-};
-
-const ACTIVARPRODDETAIL = () => {
-  const addDetail = document.querySelector(".pushCardDetail");
-  CerrarAbrirDetail();
-  addDetail.addEventListener("click", (e) => {
-    AGREGARCARRITO(parseInt(e.target.id));
-  });
-};
-
-function CerrarAbrirDetail() {
-  const containerDetail = document.querySelector(".viewCard");
-  const listProd = document.getElementById("listProd");
-  const closeDetail = document.getElementById("closeProdDetail");
-  listProd.style.display = "none";
-  closeDetail.addEventListener("click", () => {
-    $MAIN.removeChild(containerDetail);
-    listProd.style.display = "block";
-  });
-}
-
-// CARGAR PRODUCTOS
-const CARGARPRODUCTOS = (filtro) => {
-  $CARDS.innerHTML = ``;
-  productos.forEach((e) => {
-    if (e.tipo == filtro) $CARDS.innerHTML += MostrarProductos(e);
-    if (filtro == "") $CARDS.innerHTML += MostrarProductos(e);
-  });
-  ACTIVARELSELECCIONADOR();
-};
-
-const AbrirCerrarCargar = (elemento, tiempo, top, display) => {
-  elemento.style.top = top;
-  setTimeout(() => {
-    if (elemento.style.top === top) {
-      elemento.style.display = display;
-    }
-  }, tiempo);
-};
-
-// ???????????????????????????????????????????????????????
-let productos = listaProductos;
-const $CARDS = document.getElementById("CARDS");
-// const $RELOAD = document.getElementById("LOADER");
-const $BOTONABRIR = document.getElementById("abrirLogReg");
-
-// // PRELOADER
-// window.addEventListener("load", () => {
-//   AbrirCerrarCargar($RELOAD, 5000, "-100vh", "none");
-// });
-
-// ABRIR LOS FORMULARIOS
-if (localStorage.getItem("usuario") === "") {
-  $BOTONABRIR.children[0].innerHTML = ``;
-} else {
-  $BOTONABRIR.children[0].innerHTML = localStorage.getItem("usuario");
-}
-$BOTONABRIR.addEventListener("click", () => {
-  window.location = "../index.html";
-});
+// LLamamos a id: CARDS
+const CARDS = document.getElementById("CARDS");
 
 // MOSTRAR A LOS PRODUCTOS
-if ($CARDS.innerText === "" || nombreUsuario === "") {
-  productos.forEach((e) => {
-    $CARDS.innerHTML += MostrarProductos(e);
-  });
-}
+productos.forEach((e) => {
+  CARDS.innerHTML += MostrarProductos(e);
+});
 
 // SELECCIONAR MEDIANTE HEADER
 const $listaHeader = document.querySelector(
@@ -117,3 +39,50 @@ $listaHeader.forEach((e) => {
 
 // SELECCION DE PRODUCTOS
 ACTIVARELSELECCIONADOR();
+
+// SELECCION DE PRODUCTOS
+function ACTIVARELSELECCIONADOR() {
+  const listDetail = document.querySelectorAll(".ctnCard");
+  listDetail.forEach((child) => {
+    const agregar = child.querySelector(".pushCard");
+    const itemDetail = child.querySelector(".ctnCard__view");
+    agregar.addEventListener("click", (e) => {
+      AGREGARCARRITO(parseInt(e.target.id));
+    });
+
+    itemDetail.addEventListener("click", (e) => {
+      ProductDetail(e.target.id);
+      ACTIVARPRODDETAIL();
+    });
+  });
+}
+
+function ACTIVARPRODDETAIL() {
+  const addDetail = document.querySelector(".pushCardDetail");
+  CERRARABRIRDETAIL();
+  addDetail.addEventListener("click", (e) => {
+    AGREGARCARRITO(parseInt(e.target.id));
+  });
+}
+
+// ABRIR CERRAR LOS DETALLES DEL PRODUCTO
+function CERRARABRIRDETAIL() {
+  const containerDetail = document.querySelector(".viewCard");
+  const listProd = document.getElementById("listProd");
+  const closeDetail = document.getElementById("closeProdDetail");
+  listProd.style.display = "none";
+  closeDetail.addEventListener("click", () => {
+    $MAIN.removeChild(containerDetail);
+    listProd.style.display = "unset";
+  });
+}
+
+// FILTRO POR EL HEADER DE PRODUCTOS
+function CARGARPRODUCTOS(filtro) {
+  CARDS.innerHTML = "";
+  productos.forEach((e) => {
+    if (e.tipo == filtro) CARDS.innerHTML += MostrarProductos(e);
+    if (filtro == "") CARDS.innerHTML += MostrarProductos(e);
+  });
+  ACTIVARELSELECCIONADOR();
+}

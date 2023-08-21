@@ -88,8 +88,8 @@ function MainPrincipal() {
 }
 
 function ProductDetail(prodId) {
-  const prod = listaProductos.filter((e) => e.id == prodId);
-  const [{ img, title, precio, talles, stock, info, id }] = prod;
+  const prod = listaProductos.find((e) => e.id == prodId);
+  const { img, title, precio, talles, stock, info, id } = prod;
   const prodDetail = document.createElement("div");
   prodDetail.setAttribute("class", "viewCard");
   prodDetail.innerHTML += `  

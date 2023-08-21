@@ -17,6 +17,7 @@ const validarUsuario = () => {
   $formulario.innerHTML = componente.formularioLogin;
   const formulario = document.getElementById("formularioLogin");
   const registrarse = document.getElementById("registrarse");
+
   formulario.addEventListener("submit", (e) => {
     e.preventDefault();
     const datos = e.target.children;
@@ -36,12 +37,14 @@ const validarUsuario = () => {
       }
     });
   });
+  
   registrarse.addEventListener("click", () => {
     $formulario.innerHTML = "";
     $formulario.innerHTML = componente.formularioRegistro;
     crearUsuario();
   });
 };
+
 // CREAR USUARIO
 const crearUsuario = () => {
   const $formulario = document.getElementById("formularioRegistro");

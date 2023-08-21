@@ -1,17 +1,6 @@
 import listaProductos from "./data/productos.json" assert { type: "json" };
 import { $MAIN, Carrito } from "./template/template.js";
 
-/* const clima = async () =>{
-  try {
-    const resp = await fetch('https://api.openweathermap.org/data/2.5/weather?q=Buenos%20Aires,ar&appid=cd61172287436afb4166548edecb4dc3&units=metric')
-    const datos = await resp.json();
-    const datosWathermap = `En ${datos.name}, Hay una temperatura de: ${datos.main.temp}° y el clima esta ${datos.weather[0].description}`;
-    document.getElementById('avisarClima').innerHTML = datosWathermap;
-  } catch (error) {
-    console.log("volver a intentar") 
-  }
-} */
-
 function AGREGARCARRITO(itemId) {
   let productosCarrito = [];
   let existLocal = JSON.parse(localStorage.getItem("CARRITO"));
@@ -43,11 +32,26 @@ function AGREGARCARRITO(itemId) {
 function ABRIRCARRITO() {
   const btnCarrito = document.getElementById("AbrirCarrito");
   btnCarrito.addEventListener("click", () => {
+    // Condiciones para abrir el carrito.
+    const containerProdDetail = document.querySelector(".viewCard");
+    const containerCard = document.querySelector(".carrito");
+    if (containerProdDetail !== null) $MAIN.removeChild(containerProdDetail);
+    if (containerCard !== null) $MAIN.removeChild(containerCard);
+    // Extraccion de datos de local storage para mostrar los productos guardados
     let carritoLocal = JSON.parse(localStorage.getItem("CARRITO")) || [];
     Carrito(carritoLocal);
     deleteItemCard(carritoLocal);
     CerrarAbrirCard();
+    DELETECARD();
   });
+}
+
+function RECARGARCARRITO(nuevosProductos) {
+  const containerCard = document.querySelector(".carrito");
+  if (containerCard !== null) $MAIN.removeChild(containerCard);
+  Carrito(nuevosProductos);
+  deleteItemCard(nuevosProductos);
+  CerrarAbrirCard();
 }
 
 function deleteItemCard(carritoLocal = []) {
@@ -60,7 +64,17 @@ function deleteItemCard(carritoLocal = []) {
       const newCard = carritoLocal.filter((items) => items.id != e.target.id);
       console.log(newCard, e.target.id);
       localStorage.setItem("CARRITO", JSON.stringify(newCard));
+
+      RECARGARCARRITO(newCard);
     });
+  });
+}
+
+function DELETECARD() {
+  const btnDeleteCard = document.getElementById("vaciarCarrito");
+  btnDeleteCard.addEventListener("click", () => {
+    localStorage.setItem("CARRITO", "[]");
+    RECARGARCARRITO();
   });
 }
 
