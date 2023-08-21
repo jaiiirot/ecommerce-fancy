@@ -17,6 +17,26 @@ $MAIN.innerHTML = MainPrincipal();
 // LLamamos a id: CARDS
 const CARDS = document.getElementById("CARDS");
 
+// BUSCADOR DE ARTICULOS
+const formBuscador = document.querySelector(".header__search");
+formBuscador.addEventListener("keyup", (event) => {
+  event.preventDefault();
+  const search = document.getElementById("BUSCADOR").value;
+  productos.forEach((element) => {
+    const { id, title } = element;
+    const targetProd = document.getElementById(id).parentNode;
+    title.toLowerCase().includes(search)
+      ? targetProd.classList.remove("none")
+      : targetProd.classList.add("none");
+  });
+});
+
+// ACTIVANDO El HEADER MOBILE
+const headerMobile = document.getElementById("menu-bars");
+headerMobile.addEventListener("click", () => {
+  $HEADER.classList.toggle("headerNav-mobile");
+});
+
 // MOSTRAR A LOS PRODUCTOS
 productos.forEach((e) => {
   CARDS.innerHTML += MostrarProductos(e);

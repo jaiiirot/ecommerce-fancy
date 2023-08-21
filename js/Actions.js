@@ -1,6 +1,8 @@
 // import navegation from "./data/navegation.json" assert { type: "json" };
-import { $HEADER } from "./template/template.js";
-const headerMobile = document.getElementById("menu-bars");
-headerMobile.addEventListener("click", () => {
-  $HEADER.classList.toggle("headerNav-mobile");
-});
+
+// const formBuscador = document.querySelector(".header__search");
+// formBuscador.addEventListener("submit", (event) => {
+//   event.preventDefault();
+//   let search = document.getElementById("BUSCADOR").value;
+//   console.log(search);
+// });

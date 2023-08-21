@@ -10,6 +10,14 @@ $font-title: "Poppins", sans-serif;
   text-decoration: none;
 }
 
+* .none {
+  display: none;
+}
+
+* .add {
+  display: unset;
+}
+
 body {
   background: #081319;
   position: relative;
