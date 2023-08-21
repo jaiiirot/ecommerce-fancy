@@ -90,12 +90,25 @@
 @media screen and (max-width: 768px) {
   .headerNav {
     &__container {
+      display: none;
       &Options {
-        display: none;
         li {
           transition: 100ms all ease-in;
           text-align: center;
         }
+      }
+    }
+
+    &-mobile {
+      background-color: #081319;
+      position: absolute;
+      height: 70vh;
+      width: 100%;
+      top: 0;
+      z-index: 100;
+      transition: width 800ms ease-in-out;
+      .headerNav__container {
+        display: flex;
       }
     }
   }
@@ -117,6 +130,9 @@
         width: 50px;
         border-radius: 1rem;
         text-align: center;
+      }
+      #menu-bars {
+        z-index: 110;
       }
     }
   }

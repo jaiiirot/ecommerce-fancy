@@ -1,7 +1,7 @@
 import listaProductos from "../data/productos.json" assert { type: "json" };
 
-const $HEADER = document.getElementById("HEADER");
-const $MAIN = document.getElementById("MAIN");
+const $HEADER = document.getElementById("HEADER"),
+  $MAIN = document.getElementById("MAIN");
 
 function FormularioRegistro() {
   return `
@@ -71,6 +71,7 @@ function HeaderPrincipal(optionsNav) {
     </nav>
     `;
 }
+
 function MainPrincipal() {
   return `
   <section class="sec1Ix" id="listProd">
@@ -157,7 +158,6 @@ function Carrito(carritoLocal = []) {
             <span class="btn btn-content" id="vaciarCarrito">Vaciar Carrito</span>
             <span class="btn btn-content" id="comprarCarrito">Comprar Carrito</span>
           </div>
-          <br>
           <p id="avisarClima">API CLIMA</p>
         </div>
       </div>`;

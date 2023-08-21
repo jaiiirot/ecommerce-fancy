@@ -7,12 +7,13 @@ import {
   HeaderPrincipal,
   MainPrincipal,
   $MAIN,
+  $HEADER,
 } from "./template/template.js";
 
 const productos = listaProductos;
 // COMPONENTES DEL HEADER y MAIN (activado)
-HEADER.innerHTML = HeaderPrincipal(navegation);
-MAIN.innerHTML = MainPrincipal();
+$HEADER.innerHTML = HeaderPrincipal(navegation);
+$MAIN.innerHTML = MainPrincipal();
 // LLamamos a id: CARDS
 const CARDS = document.getElementById("CARDS");
 
