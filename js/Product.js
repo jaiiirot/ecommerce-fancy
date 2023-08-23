@@ -49,7 +49,7 @@ const $listaHeader = document.querySelector(
 $listaHeader.forEach((e) => {
   e.addEventListener("click", (e) => {
     const opciones = {
-      PRODUCTOS: "",
+      PRODUCTOS: " ",
       REMERAS: "r",
       PANTALONES: "p",
       ZAPATILLAS: "z",
@@ -100,10 +100,14 @@ function CERRARABRIRDETAIL() {
 
 // FILTRO POR EL HEADER DE PRODUCTOS
 function CARGARPRODUCTOS(filtro) {
-  CARDS.innerHTML = "";
-  productos.forEach((e) => {
-    if (e.tipo == filtro) CARDS.innerHTML += MostrarProductos(e);
-    if (filtro == "") CARDS.innerHTML += MostrarProductos(e);
+  // CARDS.innerHTML = "";
+  productos.forEach((element) => {
+    const { tipo, id } = element;
+    const targetProd = document.getElementById(id).parentNode;
+    filtro === " "
+      ? targetProd.classList.remove("none")
+      : tipo !== filtro
+      ? targetProd.classList.add("none")
+      : targetProd.classList.remove("none");
   });
-  ACTIVARELSELECCIONADOR();
 }
