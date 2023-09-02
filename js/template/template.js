@@ -59,14 +59,16 @@ function HeaderPrincipal(optionsNav) {
   return `
     <nav class="headerNav__container">
         <ul class="headerNav__containerOptions ">
-            ${optionsNav.map(
-              (option) => `
+            ${optionsNav
+              .map(
+                (option) => `
                 <li>
                     <a id="${option.id}">${option.name}</a>
                     <hr>
                 </li>
             `
-            )}
+              )
+              .join("")}
         </ul>
     </nav>
     `;
@@ -133,13 +135,13 @@ function Carrito(carritoLocal = []) {
                 .map(
                   (e) =>
                     ` 
-                <li class="carrito__containerProdsItem flex-center-center" >
+                <li class="carrito__containerProdsItem" >
                   <div class="carrito__containerProdsItem--info flex-center-center">
                     <img src="${e.img}">
                     <h2>${e.title}</h2>
-                    </div>  
-                  <h3>${e.precio}</h3>
-                  <p class="btn cantidad">${e.quantity}</p>
+                  </div>  
+                  <h3>$${e.precio}</h3>
+                  <p>${e.quantity}</p>
                   <input class="btn btn-content eliminarProdCarrito" id="${e.id}" name="deleteItemCard" type="submit" value="Eliminar" />
                 </li>
                 `
@@ -150,7 +152,7 @@ function Carrito(carritoLocal = []) {
                 <h3>No hay Productos</h3> 
               </div>`
         }
-
+        <hr/>
         <div class="carrito__containerOptions flex-center-center">
           <h2>Total:</h2>
           <p>$${total}</p>
@@ -158,16 +160,26 @@ function Carrito(carritoLocal = []) {
             <span class="btn btn-content" id="vaciarCarrito">Vaciar Carrito</span>
             <span class="btn btn-content" id="comprarCarrito">Comprar Carrito</span>
           </div>
-          <p id="avisarClima">API CLIMA</p>
         </div>
       </div>`;
 
   $MAIN.append(listCard);
 }
 
+function Loader(img) {
+  const ctnLoad = document.createElement("span");
+  ctnLoad.setAttribute("id", "loader-complete");
+  ctnLoad.classList.add("flex-center-center");
+  const itemLoad = `
+    <img src=${img} alt="Loader para la pagina de Fancy" >
+  `;
+  ctnLoad.append(itemLoad);
+}
+
 export {
   FormularioRegistro,
   FormularioLogin,
+  Loader,
   $HEADER,
   $MAIN,
   HeaderPrincipal,
