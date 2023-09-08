@@ -1,4 +1,15 @@
-.flex-center-center {
+$font-txt: "Nanum Myeongjo", serif;
+$font-title: "Poppins", sans-serif;
+
+* .none {
+  display: none;
+}
+
+* .add {
+  display: unset;
+}
+
+* .flex-center-center {
   display: flex;
   align-items: center;
   justify-content: center;

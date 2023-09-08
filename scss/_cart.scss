@@ -8,7 +8,8 @@
     display: flex;
     width: 100%;
     height: 100%;
-    flex-direction: row-reverse;
+    flex-direction: column;
+    align-items: center;
     &Prods {
       padding: 0px 10px;
       width: 70%;
@@ -98,6 +99,9 @@
           flex-direction: row;
           width: 100%;
           justify-content: center;
+          span {
+            font-size: 0.8rem;
+          }
         }
       }
     }

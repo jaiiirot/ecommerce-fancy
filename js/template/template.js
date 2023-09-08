@@ -3,41 +3,13 @@ import listaProductos from "../data/productos.json" assert { type: "json" };
 const $HEADER = document.getElementById("HEADER"),
   $MAIN = document.getElementById("MAIN");
 
-function FormularioRegistro() {
-  return `
-  <form class="logReg__ctn" id="formularioRegistro">
-    <h2>Crear tu cuenta</h2>
-    <input name="nombre" type="text" placeholder="Nombre Usuario">
-    <input name="email" type="email" placeholder="E-mail">
-    <input name="reemail" type="email" placeholder="Confirmar E-mail">
-    <input name="contrasenia" type="password" placeholder="Contraseña">
-    <input name="repassword" type="password" placeholder="Confirmar Contraseña">
-
-    <input class="btn" type="submit" value="CREAR CUENTA">
-    <span class="btn" id="iniciarSession">YA TENGO CUENTA</span>
-  </form>
-`;
-}
-
-function FormularioLogin() {
-  return `
-<form class="logReg__ctn" action="" id="formularioLogin">
-<h2>Iniciar Sesion</h2>
-<input id="text" name="nombre" type="text" placeholder="Nombre Usuario:">
-<input id="password" name="contrasenia" type="password" placeholder="Contraseña:">
-
-<input class="btn" type="submit" value="INICIAR SESION">
-<span id="registrarse" class="btn">CREAR UNA CUENTA</span>
-</form>
-`;
-}
-
 function MostrarProductos(prod) {
   const { img, title, precio, id, tipo } = prod;
   let option = {
     r: "https://img.icons8.com/ios-filled/20/null/polo-shirt.png",
     p: "https://img.icons8.com/ios-filled/20/null/trousers.png",
     z: "https://img.icons8.com/ios-filled/20/null/sneakers.png",
+    b: "https://img.icons8.com/ios-glyphs/20/womens-hoodie.png",
   };
   return `  
       <div class="ctnCard">
@@ -132,9 +104,10 @@ function Carrito(carritoLocal = []) {
             ? `
             <ul class="carrito__containerProds" id="containerListProdDetail">
               ${carritoLocal
-                .map(
-                  (e) =>
-                    ` 
+                .map((e) => {
+                  let aux_total = e.precio * e.quantity;
+                  total += aux_total;
+                  return ` 
                 <li class="carrito__containerProdsItem" >
                   <div class="carrito__containerProdsItem--info flex-center-center">
                     <img src="${e.img}">
@@ -144,8 +117,8 @@ function Carrito(carritoLocal = []) {
                   <p>${e.quantity}</p>
                   <input class="btn btn-content eliminarProdCarrito" id="${e.id}" name="deleteItemCard" type="submit" value="Eliminar" />
                 </li>
-                `
-                )
+                `;
+                })
                 .join("")}
             </ul>`
             : `<div class="carrito__containerProdsNoItem flex-center-center" >
@@ -166,7 +139,7 @@ function Carrito(carritoLocal = []) {
   $MAIN.append(listCard);
 }
 
-function Loader(img) {
+/* function Loader(img) {
   const ctnLoad = document.createElement("span");
   ctnLoad.setAttribute("id", "loader-complete");
   ctnLoad.classList.add("flex-center-center");
@@ -174,12 +147,10 @@ function Loader(img) {
     <img src=${img} alt="Loader para la pagina de Fancy" >
   `;
   ctnLoad.append(itemLoad);
-}
+} */
 
 export {
-  FormularioRegistro,
-  FormularioLogin,
-  Loader,
+  // Loader,
   $HEADER,
   $MAIN,
   HeaderPrincipal,

@@ -158,5 +158,15 @@
     "talles": "37,38,39,40,41,42,43,44,45",
     "precio": "7000",
     "stock": "20"
+  },
+  {
+    "tipo": "b",
+    "id": 17,
+    "img": "https://http2.mlstatic.com/D_NQ_NP_680526-MLA71392559172_082023-W.webp",
+    "title": "Buzo Bowen Algodón Oversized",
+    "info": "Buzo Bowen Hombre Algodón Oversized Young Dyed, perfecto para el día a día.",
+    "talles": "37,38,39,40,41,42,43,44,45",
+    "precio": "7000",
+    "stock": "20"
   }
 ]

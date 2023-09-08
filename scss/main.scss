@@ -1,5 +1,5 @@
-$font-txt: "Nanum Myeongjo", serif;
-$font-title: "Poppins", sans-serif;
+@import "./form";
+@import "./template";
 
 * {
   margin: 0;
@@ -8,14 +8,6 @@ $font-title: "Poppins", sans-serif;
   font-family: $font-title;
   list-style: none;
   text-decoration: none;
-}
-
-* .none {
-  display: none;
-}
-
-* .add {
-  display: unset;
 }
 
 body {
@@ -48,22 +40,15 @@ main {
 
 @media screen and (max-width: 768px) {
   body {
-    grid-template-columns: 100vw;
-    grid-template-rows: 10vh max-content 10vh;
-    grid-template-areas:
-      "header header"
-      "body body"
-      "footer footer";
+    display: unset;
   }
   main {
     height: 80vh;
   }
 }
 
-@import "./template";
-@import "./plugins";
 @import "./header";
 @import "./footer";
 @import "./index";
 @import "./productos";
-@import "./card";
+@import "./cart";

@@ -21,14 +21,15 @@
 </head>
 
 
-<body>
+<body id="the-body">
+
 
   <!-- <header id="HEADER" class="header"> -->
   <header id="HEADER" class="headerNav">
     <!-- aca esta el header -->
   </header>
 
-  <div class="header">
+  <section id="HEADER-USER" class="header">
     <div class="header__logo logo">
       <a class="logo__link flex-center-center" href="./index.html">
         <img src="./images/logo.png" alt="" srcset="" />
@@ -44,14 +45,14 @@
       <li class="btn btn-none" id="AbrirCarrito">
         <i class="fa-solid fa-cart-shopping"></i>
       </li>
-      <li class="btn btn-none" id="abrirLogReg">
+      <li class="btn btn-none" id="login-register">
         <i class="fa-solid fa-user-plus"></i>
       </li>
-      <li class="btn btn-response" id="menu-bars">
+      <li class="btn btn-none" id="menu-bars">
         <i class="fa-solid fa-bars"></i>
       </li>
     </ul>
-  </div>
+  </section>
 
   <main id="MAIN">
     <!-- section 1 index : lista de productos -->
@@ -64,9 +65,44 @@
   </footer>
 
 
+  <aside class="login-register lr-off flex-center-center" id="ctn-fl-fr">
+    <div class="login-register-ctn">
+      <span>
+        <i class="fa-regular fa-circle-xmark viewCard__btn" id="closeform" style="background: none;"></i>
+      </span>
+      <form class="login" id="flogin">
+        <h2>Iniciar Sesion</h2>
+        <div>
+          <input id="text" name="email" type="email" placeholder="Email Usuario:">
+          <input id="password" name="contrasenia" type="password" placeholder="Contraseña:">
+        </div>
+
+        <input id="openIniciarSesion" class="btn" type="submit" value="INICIAR SESION">
+        <span id="closeIniciarSesion" class="btn">CREAR UNA CUENTA</span>
+      </form>
+      <form class="register-off" id="fregister">
+        <h2>Crear tu cuenta</h2>
+        <div>
+          <input name="nombre" type="text" placeholder="Nombre Usuario">
+          <input name="email" type="email" placeholder="E-mail">
+          <input name="reemail" type="email" placeholder="Confirmar E-mail">
+          <input name="contrasenia" type="password" placeholder="Contraseña">
+          <input name="repassword" type="password" placeholder="Confirmar Contraseña">
+        </div>
+        <input class="btn" id="openRegister" type="submit" value="CREAR CUENTA">
+        <span class="btn" id="closeRegister">YA TENGO CUENTA</span>
+      </form>
+    </div>
+  </aside>
+
+  <aside id="loading">
+    <!-- aca va el loading -->
+  </aside>
+
   <script src="./js/Product.js" type="module"></script>
   <script src="./js/Card.js" type="module"></script>
-  <script src="./js/Actions.js" type="module"></script>
+  <script src="./js/Session.js" type="module"></script>
+  <script src="./config/db.js" type="module"></script>
 </body>
 
 </html>

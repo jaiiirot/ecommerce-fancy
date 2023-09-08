@@ -9,16 +9,16 @@ import {
   $MAIN,
   $HEADER,
 } from "./template/template.js";
-
 const productos = listaProductos;
-// COMPONENTES DEL HEADER y MAIN (activado)
 $HEADER.innerHTML = HeaderPrincipal(navegation);
 $MAIN.innerHTML = MainPrincipal();
-// LLamamos a id: CARDS
 const CARDS = document.getElementById("CARDS");
 
 // BUSCADOR DE ARTICULOS
 const formBuscador = document.querySelector(".header__search");
+formBuscador.addEventListener("submit", (event) => {
+  event.preventDefault();
+});
 formBuscador.addEventListener("keyup", (event) => {
   event.preventDefault();
   const search = document.getElementById("BUSCADOR").value;
@@ -53,6 +53,7 @@ $listaHeader.forEach((e) => {
       REMERAS: "r",
       PANTALONES: "p",
       ZAPATILLAS: "z",
+      BUZOS: "b",
     };
     CARGARPRODUCTOS(opciones[e.target.id]);
   });
@@ -78,6 +79,7 @@ function ACTIVARELSELECCIONADOR() {
   });
 }
 
+// INGRESAR A LOS DETALLES DEL PRODUCTO
 function ACTIVARPRODDETAIL() {
   const addDetail = document.querySelector(".pushCardDetail");
   CERRARABRIRDETAIL();
@@ -100,7 +102,6 @@ function CERRARABRIRDETAIL() {
 
 // FILTRO POR EL HEADER DE PRODUCTOS
 function CARGARPRODUCTOS(filtro) {
-  // CARDS.innerHTML = "";
   productos.forEach((element) => {
     const { tipo, id } = element;
     const targetProd = document.getElementById(id).parentNode;

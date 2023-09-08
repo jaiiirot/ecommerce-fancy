@@ -62,7 +62,6 @@ function deleteItemCard(carritoLocal = []) {
     const deleteItem = child.querySelector(".eliminarProdCarrito");
     deleteItem.addEventListener("click", (e) => {
       const newCard = carritoLocal.filter((items) => items.id != e.target.id);
-      console.log(newCard, e.target.id);
       localStorage.setItem("CARRITO", JSON.stringify(newCard));
 
       RECARGARCARRITO(newCard);
