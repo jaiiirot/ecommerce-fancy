@@ -1,7 +1,9 @@
 import listaProductos from "./data/productos.json" assert { type: "json" };
 import { $MAIN, Carrito } from "./template/template.js";
+import { addCart, Finally } from "./template/sweetAlet.js";
 
 function AGREGARCARRITO(itemId) {
+  addCart();
   let productosCarrito = [];
   let existLocal = JSON.parse(localStorage.getItem("CARRITO"));
   if (existLocal === null) {
@@ -43,6 +45,14 @@ function ABRIRCARRITO() {
     deleteItemCard(carritoLocal);
     CerrarAbrirCard();
     DELETECARD();
+    FINALIZARCOMPRA();
+  });
+}
+
+function FINALIZARCOMPRA() {
+  const btnFinalizarCompra = document.getElementById("comprarCarrito");
+  btnFinalizarCompra.addEventListener("click", () => {
+    Finally(RECARGARCARRITO);
   });
 }
 

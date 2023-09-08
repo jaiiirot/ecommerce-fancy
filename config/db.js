@@ -1,4 +1,4 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
+/* import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -61,3 +61,4 @@ function signIn(email, password) {
 }
 
 export { signIn, createUser };
+ */

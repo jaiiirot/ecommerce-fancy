@@ -9,6 +9,7 @@ import {
   $MAIN,
   $HEADER,
 } from "./template/template.js";
+
 const productos = listaProductos;
 $HEADER.innerHTML = HeaderPrincipal(navegation);
 $MAIN.innerHTML = MainPrincipal();
