@@ -25,7 +25,7 @@ formBuscador.addEventListener("keyup", (event) => {
   productos.forEach((element) => {
     const { id, title } = element;
     const targetProd = document.getElementById(id).parentNode;
-    title.toLowerCase().includes(search)
+    title.toLowerCase().includes(search.toLowerCase())
       ? targetProd.classList.remove("none")
       : targetProd.classList.add("none");
   });
