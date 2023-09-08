@@ -12,14 +12,23 @@
   }
 }
 
-/* @media screen and (max-width: 1024px) {
-  .
-}
-
 @media screen and (max-width: 768px) {
+  .sec1Ix {
+    &__title {
+      h2 {
+        font-size: 1rem;
+        text-align: center;
+      }
+      h3 {
+        font-size: 0.8rem;
+      }
+    }
 
+    &__ctnCards {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(150px, 1fr));
+      gap: 10px;
+    }
+  }
 }
-
-@media screen and (max-width: 640px) {
-
-} */

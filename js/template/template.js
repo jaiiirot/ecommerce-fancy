@@ -51,9 +51,7 @@ function MainPrincipal() {
   <section class="sec1Ix" id="listProd">
       <div class="sec1Ix__title">
           <h2 class="ff-rocksalt">Todos los productos disponibles de FANCY</h2>
-          <h3>¡ Bienvenido ${localStorage.getItem("usuario") || ""}!</h3>
-          <br/>
-          <h2 style="text-align: center" >PRODUCTOS</h2>
+          <p>PRODUCTOS</p>
           <div id="CARDS" class="sec1Ix__ctnCards">
               <!-- ACA VA LOS PRODUCTOS -->
           </div>
@@ -127,8 +125,10 @@ function Carrito(carritoLocal = []) {
         }
         <hr/>
         <div class="carrito__containerOptions flex-center-center">
-          <h2>Total:</h2>
-          <p>$${total}</p>
+          <div class="carrito__containerOptions--info flex-center-center">
+            <h2>Total:</h2>
+            <p>$${total}</p>
+          </div>
           <div class="carrito__containerOptions--btns">
             <span class="btn btn-content" id="vaciarCarrito">Vaciar Carrito</span>
             <span class="btn btn-content" id="comprarCarrito">Comprar Carrito</span>

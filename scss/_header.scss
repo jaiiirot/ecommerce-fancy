@@ -100,13 +100,14 @@
     }
 
     &-mobile {
-      background-color: #081319;
+      transition: 200ms all ease-in;
+      backdrop-filter: blur(10px);
+      background-color: #081319f9;
       position: absolute;
-      height: 70vh;
+      height: 100vh;
       width: 100%;
       top: 0;
       z-index: 20;
-      transition: width 800ms ease-in-out;
       .headerNav__container {
         display: flex;
       }
@@ -114,13 +115,18 @@
   }
 
   .header {
-    grid-template-areas: "ico null option";
-    height: 10vh;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "ico option"
+      "sea sea";
+    width: 100%;
+    height: 15vh;
     &__logo {
       grid-area: ico;
     }
     &__search {
-      display: none;
+      height: 60%;
+      grid-area: sea;
     }
     &__option {
       grid-area: option;

@@ -40,9 +40,11 @@
     &Options {
       width: 30%;
       flex-direction: column;
-      justify-content: start;
-      align-items: start;
       gap: 1rem;
+      &--info {
+        width: 100%;
+        justify-content: space-between;
+      }
     }
   }
 }
