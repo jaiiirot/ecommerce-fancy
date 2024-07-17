@@ -1,4 +1,4 @@
-import listaProductos from "./data/productos.json" assert { type: "json" };
+import listaProductos from "./data/productos.json" with { type: "json" };
 import { $MAIN, Carrito } from "./template/template.js";
 import { addCart, Finally } from "./template/sweetAlet.js";
 

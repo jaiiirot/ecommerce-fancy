@@ -1,4 +1,4 @@
-import listaProductos from "../data/productos.json" assert { type: "json" };
+import listaProductos from "../data/productos.json" with { type: "json" };
 
 const $HEADER = document.getElementById("HEADER"),
   $MAIN = document.getElementById("MAIN");

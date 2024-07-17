@@ -1,5 +1,5 @@
-import listaProductos from "./data/productos.json" assert { type: "json" };
-import navegation from "./data/navegation.json" assert { type: "json" };
+import listaProductos from "./data/productos.json" with  { type: "json" };
+import navegation from "./data/navegation.json" with  { type: "json" };
 import { AGREGARCARRITO } from "./Card.js";
 import {
   ProductDetail,
